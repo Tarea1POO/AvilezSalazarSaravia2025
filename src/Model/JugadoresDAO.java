@@ -1,8 +1,8 @@
 package Model;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 
 public class JugadoresDAO {
@@ -10,7 +10,7 @@ public class JugadoresDAO {
 
     public JugadoresDAO() {
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos","root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
         }catch (SQLException e){
             e.printStackTrace();
         }
