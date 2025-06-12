@@ -5,8 +5,8 @@ public class JugadoresView {
     private Scanner teclado = new Scanner(System.in);
 
     public void mostrarMenu(){
-        System.out.println(" MENÚ DE JUGADORES ");
-        System.out.println("1.- Listar Jugadores:");
+        System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
+        System.out.println("1.- Listar Jugadores");
         System.out.println("2.- Crear Jugador");
         System.out.println("3.- Editar Jugador");
         System.out.println("4.- Eliminar Jugador");

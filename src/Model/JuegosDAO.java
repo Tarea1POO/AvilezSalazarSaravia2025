@@ -1,66 +1,67 @@
 package Model;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 public class JuegosDAO {
     private Connection connection;
+    public JuegosDAO(){
+        try{
+            connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
 
-    public JugadoresDAO() {
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
-        } catch (SQLException e) {
+        }catch(SQLException e){
             e.printStackTrace();
         }
     }
-
-    public void crearJugador(Jugadores jugador) {
-        String sql = "INSERT INTO jugadores (nombre, nickname, edad) values(?,?,?)";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, jugador.getNombre());
-            stmt.setString(2, jugador.getNickname());
-            stmt.setInt(3, jugador.getEdad());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public List<Jugadores> obtenerTodos() {
-        List<Jugadores> jugador = new ArrayList<>();
-        String sql = "Select * FROM jugadores";
-        try (Statement stmt = connection.createStatement()) {
-            ResultSet resultado = stmt.executeQuery(sql);
-            while (resultado.next()) {
-                jugador.add(new Jugadores(resultado.getInt("id_jugador"),
-                        resultado.getString("nombre"),
-                        resultado.getString("nickname"),
-                        resultado.getInt("edad")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return jugador;
-    }
-    public void actualizarJugador(Jugadores jugador){
-        String sql = "UPDATE jugadores SET nombre=?, nickname=?, edad=? WHERE id_jugador=?";
-        try(PreparedStatement stmt= connection.prepareStatement(sql)){
-            stmt.setString(1,jugador.getNombre());
-            stmt.setString(2, jugador.getNickname());
-            stmt.setInt(3,jugador.getEdad());
-            stmt.setInt(4,jugador.getId_jugador());
+    public void crearJuegos(Juegos jue ){
+        String sql="INSERT INTO juegos(titulo, genero, consola_compatible, precio) VALUES(?,?,?,?)";
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
+            stmt.setString(1, jue.getTitulo());
+            stmt.setString(2, jue.getGenero());
+            stmt.setString(3, jue.getConsola_compatible());
+            stmt.setInt(4, jue.getPrecio());
             stmt.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
         }
-        public void eliminarJugador(int id){
-            String sql = "DELETE FROM jugadores WHERE id_jugador=?";
-            try(PreparedStatement stmt= connection.prepareStatement(sql)){
-                stmt.setInt(1,id);
-                stmt.executeUpdate();
-            }catch(SQLException e){
-                e.printStackTrace();
+
+    }
+    public List<Juegos> obtenerTodos(){
+        List<Juegos> juegos=new ArrayList<>();
+        String sql="SELECT * FROM juegos";
+        try(Statement stmt = connection.createStatement()){
+            ResultSet resultado= stmt.executeQuery(sql);
+            while(resultado.next()){
+                juegos.add(new Juegos(resultado.getInt("id_juego"),
+                        resultado.getString("titulo"),
+                        resultado.getString ("genero"),
+                        resultado.getString("consola_compatible"),
+                        resultado.getInt("precio")));
+
             }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }return juegos;
+    }
+    public void actualizarJuegos(Juegos jue ){
+
+        String sql="UPDATE juegos SET titulo= ?, genero=?, consola_compatible=?, precio=?WHERE id_juego=?";
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
+            stmt.setString(1, jue.getTitulo());
+            stmt.setString(2, jue.getGenero());
+            stmt.setString(3, jue.getConsola_compatible());
+            stmt.setInt(4, jue.getPrecio());
+            stmt.setInt(5, jue.getId_juego());
+            stmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void eliminarJuego(int id){
+        String sql="DELETE FROM juegos WHERE id_juego=?";
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
+            stmt.setInt(1,id);
+            stmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
         }
     }
 }

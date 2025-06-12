@@ -20,7 +20,7 @@ public class ConsolasView {
             consolas.forEach(System.out::println);
         }
     }
-    public Consolas leerNuevoConsolas(){
+    public Consolas leerNuevaConsola(){
         System.out.println("nombre: ");
         String nombre = teclado.nextLine();
         System.out.println("fabricante: ");
@@ -33,10 +33,10 @@ public class ConsolasView {
         consolas.setAnio_lanzamiento(anio);
         return consolas;
     }
-    public Consolas leerConsolasACtualizar(){
+    public Consolas leerConsolasActualizadas(){
         System.out.println("Ingrese el ID del controles a actualizar");
         int id = Integer.parseInt(teclado.nextLine());
-        Consolas consolas = leerConsolasACtualizar();
+        Consolas consolas = leerConsolasActualizadas();
         consolas.setId_consola(id);
         return consolas;
     }

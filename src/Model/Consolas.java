@@ -8,10 +8,19 @@ public class Consolas {
     public Consolas() {
     }
 
-    public Consolas(String nombre, String fabricante, int anio_lanzamiento) {
+    public Consolas(int id_consola, String nombre, String fabricante, int anio_lanzamiento) {
+        this.id_consola = id_consola;
         this.nombre = nombre;
         this.fabricante = fabricante;
         this.anio_lanzamiento = anio_lanzamiento;
+    }
+
+    public int getId_consola() {
+        return id_consola;
+    }
+
+    public void setId_consola(int id_consola) {
+        this.id_consola = id_consola;
     }
 
     public String getNombre() {
@@ -38,10 +47,11 @@ public class Consolas {
         this.anio_lanzamiento = anio_lanzamiento;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Consolas{" +
-                "nombre='" + nombre + '\'' +
+                "id_consola=" + id_consola +
+                ", nombre='" + nombre + '\'' +
                 ", fabricante='" + fabricante + '\'' +
                 ", anio_lanzamiento=" + anio_lanzamiento +
                 '}';

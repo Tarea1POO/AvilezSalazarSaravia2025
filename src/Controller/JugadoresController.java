@@ -22,7 +22,7 @@ public class JugadoresController {
                 case 1 -> view.mostrarJugadores(dao.obtenerTodos());
                 case 2 -> dao.crearJugador(view.leerNuevoJugador());
                 case 3 -> dao.actualizarJugadores(view.leerJugadoresActualizados());
-                case 4 -> dao.eliminarJugadores(view.leerIdEliminar());
+                case 4 -> dao.eliminarJugador(view.leerIdEliminar());
                 case 5 -> System.out.println("Adios!!!!...");
             }
         }while(opcion !=5 );
