@@ -23,6 +23,7 @@ public class ControlesDAO {
         }
 
     }
+
     public List<Controles> obtenerTodos(){
         List<Controles> controles=new ArrayList<>();
         String sql="SELECT * FROM controles";
@@ -40,7 +41,6 @@ public class ControlesDAO {
         }return controles;
     }
     public void actualizarControles(Controles con ){
-
         String sql="UPDATE controles SET tipo= ?, consola_compatible=?, estado=? WHERE id_control=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, con.getTipo());

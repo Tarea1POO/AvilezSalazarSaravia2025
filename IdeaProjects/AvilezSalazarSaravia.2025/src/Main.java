@@ -12,7 +12,6 @@ import View.JugadoresView;
 import View.JuegosView;
 import View.ConsolasView;
 import View.ControlesView;
-import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);

@@ -24,7 +24,7 @@ public class JugadoresController {
                 case 2 -> dao.crearJugador(view.leerNuevoJugador());
                 case 3 -> dao.actualizarJugadores(view.leerJugadoresActualizados());
                 case 4 -> dao.eliminarJugador(view.leerIdEliminar());
-                case 5 -> System.out.println("Adios!!!!...");
+                case 5 -> System.out.println("Volviendo al menu principal...👌");
             }
         }while(opcion !=5 );
     }

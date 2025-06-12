@@ -8,11 +8,11 @@ public class ConsolasView {
 
     public void mostrarMenu(){
         System.out.println(" MENÚ DE CONSOLAS ");
-        System.out.println("1.- Listar Consolas:");
-        System.out.println("2.- Crear Consola");
-        System.out.println("3.- Editar Consola");
-        System.out.println("4.- Eliminar Consola");
-        System.out.println("5.- Salir");
+        System.out.println("1.- Listar Consolas: ");
+        System.out.println("2.- Crear Consola: ");
+        System.out.println("3.- Editar Consola: ");
+        System.out.println("4.- Eliminar Consola: ");
+        System.out.println("5.- Salir: ");
         System.out.println("Indique una opción 😊: ");
 
     }

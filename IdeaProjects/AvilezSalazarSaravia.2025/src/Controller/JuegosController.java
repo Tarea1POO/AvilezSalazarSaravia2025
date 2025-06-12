@@ -24,7 +24,7 @@ public class JuegosController {
                 case 2 -> dao.crearJuegos(view.leerNuevoJuego());
                 case 3 -> dao.actualizarJuegos(view.leerJuegosActualizados());
                 case 4 -> dao.eliminarJuego(view.leerIdEliminar());
-                case 5 -> System.out.println("Adios!!!!...");
+                case 5 -> System.out.println("Volviendo al menu principal...👌");
             }
         }while(opcion !=5 );
     }
