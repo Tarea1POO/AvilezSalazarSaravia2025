@@ -1,6 +1,5 @@
 package View;
 import Model.Consolas;
-import Model.Controles;
 import java.util.*;
 public class ConsolasView {
     private Scanner teclado = new Scanner(System.in);

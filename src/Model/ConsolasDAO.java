@@ -6,7 +6,6 @@ public class ConsolasDAO {
     public ConsolasDAO(){
         try{
             connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
-
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -21,7 +20,6 @@ public class ConsolasDAO {
         }catch(SQLException e){
             e.printStackTrace();
         }
-
     }
     public List<Consolas> obtenerTodos(){
         List<Consolas> consolas=new ArrayList<>();
@@ -33,7 +31,6 @@ public class ConsolasDAO {
                         resultado.getString("nombre"),
                         resultado.getString ("fabricante"),
                         resultado.getInt("anio_lanzamiento")));
-
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -51,8 +48,6 @@ public class ConsolasDAO {
             e.printStackTrace();
         }
     }
-
-
     public void eliminarConsola(int id){
         String sql="DELETE FROM consola WHERE id_consola=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){

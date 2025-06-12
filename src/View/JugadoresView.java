@@ -3,7 +3,6 @@ import Model.Jugadores;
 import java.util.*;
 public class JugadoresView {
     private Scanner teclado = new Scanner(System.in);
-
     public void mostrarMenu(){
         System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
         System.out.println("1.- Listar Jugadores");
@@ -12,9 +11,7 @@ public class JugadoresView {
         System.out.println("4.- Eliminar Jugador");
         System.out.println("5.- Salir");
         System.out.println("Indique una opción 😁: ");
-
     }
-
     public void mostrarJugadores (List<Jugadores> jugadores){
         if( jugadores.isEmpty()){
             System.out.println("No hay jugadores");
@@ -24,7 +21,6 @@ public class JugadoresView {
             jugadores.forEach(System.out::println);
         }
     }
-
     public Jugadores leerNuevoJugador() {
         System.out.println("Nombre: ");
         String nombre = teclado.nextLine();
@@ -38,7 +34,6 @@ public class JugadoresView {
         ju.setEdad(edad);
         return ju;
     }
-
     public Jugadores leerJugadoresActualizados(){
         System.out.println("Ingrese el ID del jugador a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
@@ -46,12 +41,10 @@ public class JugadoresView {
         jugador.setId_jugador(id);
         return jugador;
     }
-
     public int leerIdEliminar(){
         System.out.println("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
-
     public int leerOpcion(){
         return Integer.parseInt(teclado.nextLine());
     }

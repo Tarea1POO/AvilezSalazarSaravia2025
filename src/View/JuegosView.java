@@ -3,7 +3,6 @@ import Model.Juegos;
 import java.util.*;
 public class JuegosView {
     private Scanner teclado = new Scanner(System.in);
-
     public void mostrarMenu(){
         System.out.println(" MENÚ DE JUEGOS ");
         System.out.println("1.- Listar Juegos:");
@@ -12,19 +11,14 @@ public class JuegosView {
         System.out.println("4.- Eliminar Juegos");
         System.out.println("5.- Salir");
         System.out.println("Indique una opción 😁: ");
-
     }
-
     public void mostrarJuegos (List<Juegos> juegos){
         if( juegos.isEmpty()){
             System.out.println("No hay juegos");
-
-
         } else{
             juegos.forEach(System.out::println);
         }
     }
-
     public Juegos leerNuevoJuego() {
         System.out.println("Titulo: ");
         String titulo = teclado.nextLine();
@@ -41,7 +35,6 @@ public class JuegosView {
         jue.setId_juego(precio);
         return jue;
     }
-
     public Juegos leerJuegosActualizados(){
         System.out.println("Ingrese el ID del juego a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
@@ -49,12 +42,10 @@ public class JuegosView {
         juegos.setId_juego(id);
         return juegos;
     }
-
     public int leerIdEliminar(){
         System.out.println("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
-
     public int leerOpcion(){
         return Integer.parseInt(teclado.nextLine());
     }
