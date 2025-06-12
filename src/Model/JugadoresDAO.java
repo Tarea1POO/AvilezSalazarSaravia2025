@@ -1,8 +1,7 @@
 package Model;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-public class JuegosDAO {
+import java.util.*;
+public class JugadoresDAO {
     private Connection connection;
 
     public JugadoresDAO() {
