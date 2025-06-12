@@ -7,7 +7,7 @@ public class ConsolasView {
     private Scanner teclado=new Scanner(System.in);
 
     public void mostrarMenu(){
-        System.out.println(" MENÚ DE Consolas ");
+        System.out.println(" MENÚ DE CONSOLAS ");
         System.out.println("1.- Listar Consolas:");
         System.out.println("2.- Crear Consola");
         System.out.println("3.- Editar Consola");

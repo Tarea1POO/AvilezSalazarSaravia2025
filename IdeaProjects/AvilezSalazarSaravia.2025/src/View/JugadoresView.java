@@ -34,6 +34,7 @@ public class JugadoresView {
         String nickName = teclado.nextLine();
         System.out.println("Edad:");
         int edad = Integer.parseInt(teclado.nextLine());
+
         Jugadores ju= new Jugadores();
         ju.setNombre(nombre);
         ju.setNickname(nickName);

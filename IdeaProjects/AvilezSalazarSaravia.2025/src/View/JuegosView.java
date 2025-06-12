@@ -40,7 +40,7 @@ public class JuegosView {
         jue.setTitulo(titulo);
         jue.setGenero(genero);
         jue.setConsola_compatible(consola_compatible);
-        jue.setId_juego(precio);
+        jue.setPrecio(precio);
         return jue;
     }
 
@@ -60,6 +60,4 @@ public class JuegosView {
     public int leerOpcion(){
         return Integer.parseInt(teclado.nextLine());
     }
-
-
 }
