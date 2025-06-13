@@ -43,7 +43,7 @@ public class Main{
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Opción invalida ingrese una opción del [1 al 5]");
+                    System.out.println("Opción invalida ingrese una opción del [1-5]");
             }
         } while (opcion != 5);
     }
