@@ -24,7 +24,7 @@ public class JugadoresDAO {
         }
     }
     public List<Jugadores> obtenerTodos(){
-        List<Jugadores> jugadores=new ArrayList<>();
+        List<Jugadores> jugadores = new ArrayList<>();
         String sql="SELECT * FROM jugadores";
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado= stmt.executeQuery(sql);
@@ -33,7 +33,6 @@ public class JugadoresDAO {
                         resultado.getString("nombre"),
                         resultado.getString ("nickname"),
                         resultado.getInt("edad")));
-
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -41,7 +40,7 @@ public class JugadoresDAO {
     }
     public void actualizarJugadores(Jugadores ju ){
 
-        String sql="UPDATE equipos SET nombre= ?, nickname=?, edad=? WHERE id_jugador=?";
+        String sql="UPDATE jugadores SET nombre= ?, nickname=?, edad=? WHERE id_jugador=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, ju.getNombre());
             stmt.setString(2, ju.getNickname());
@@ -53,10 +52,11 @@ public class JugadoresDAO {
         }
     }
     public void eliminarJugador(int id){
-        String sql="DELETE FROM equipos WHERE id_jugador=?";
+        String sql="DELETE FROM jugadores WHERE id_jugador=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
             stmt.executeUpdate();
+            System.out.println("Jugador Eliminado Correctamente 😊");
         }catch(SQLException e){
             e.printStackTrace();
         }

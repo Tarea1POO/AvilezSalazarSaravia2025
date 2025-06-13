@@ -24,7 +24,7 @@ public class Main {
             System.out.println("3.- Gestionar Consolas");
             System.out.println("4.- Gestionar Controles");
             System.out.println("5.- Salir");
-            System.out.println("Indique una opción: ");
+            System.out.print("Indique una opción: ");
             opcion = teclado.nextInt();
 
             switch (opcion){

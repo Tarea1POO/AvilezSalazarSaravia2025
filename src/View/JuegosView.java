@@ -4,8 +4,9 @@ import java.util.*;
 public class JuegosView {
     private Scanner teclado = new Scanner(System.in);
     public void mostrarMenu(){
-        System.out.println(" MENÚ DE JUEGOS ");
-        System.out.println("1.- Listar Juegos:");
+        System.out.println(" ");
+        System.out.println(" 🕹️ MENÚ DE JUEGOS  🕹️ ");
+        System.out.println("1.- Listar Juegos");
         System.out.println("2.- Crear Juegos");
         System.out.println("3.- Editar Juegos");
         System.out.println("4.- Eliminar Juegos");
@@ -20,6 +21,8 @@ public class JuegosView {
         }
     }
     public Juegos leerNuevoJuego() {
+        System.out.println(" ");
+        System.out.println("Ingrese los datos del nuevo juego");
         System.out.println("Titulo: ");
         String titulo = teclado.nextLine();
         System.out.println("Genero: ");
@@ -36,6 +39,7 @@ public class JuegosView {
         return jue;
     }
     public Juegos leerJuegosActualizados(){
+        System.out.println(" ");
         System.out.println("Ingrese el ID del juego a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
         Juegos juegos=leerNuevoJuego();
@@ -43,6 +47,7 @@ public class JuegosView {
         return juegos;
     }
     public int leerIdEliminar(){
+        System.out.println(" ");
         System.out.println("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }

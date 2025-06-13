@@ -49,7 +49,7 @@ public class ConsolasDAO {
         }
     }
     public void eliminarConsola(int id){
-        String sql="DELETE FROM consola WHERE id_consola=?";
+        String sql="DELETE FROM consolas WHERE id_consola=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
             stmt.executeUpdate();

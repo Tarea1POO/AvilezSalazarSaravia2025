@@ -4,13 +4,14 @@ import java.util.*;
 public class ControlesView {
     private Scanner teclado = new Scanner(System.in);
     public void mostrarMenu(){
-        System.out.println(" MENÚ DE CONTROLES");
+        System.out.println(" ");
+        System.out.println(" 🎮😋 MENÚ DE CONTROLES 🎮😋");
         System.out.println("1.- Listar CONTROLES:");
         System.out.println("2.- Crear Control");
         System.out.println("3.- Editar Control");
         System.out.println("4.- Eliminar Control");
         System.out.println("5.- Salir");
-        System.out.println("Indique una opción 😁: ");
+        System.out.print("Indique una opción 😁: ");
     }
     public void mostrarControles (List<Controles> controles){
         if( controles.isEmpty()){

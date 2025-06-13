@@ -4,17 +4,18 @@ import java.util.*;
 public class ConsolasView {
     private Scanner teclado = new Scanner(System.in);
     public void mostrarMenu(){
-        System.out.println("Menu Consolas");
+        System.out.println(" ");
+        System.out.println(" 🎲🙃 MENÚ CONSOLAS 🙃🎲");
         System.out.println("1- Crear Consolas");
         System.out.println("2- Mostrar Consolas");
         System.out.println("3- Actualizar Consolas");
         System.out.println("4- Eliminar Consolas");
         System.out.println("5- Salir");
-        System.out.println("Indicar una opción ❤:  ");
+        System.out.print("Indicar una opción 😁:  ");
     }
     public void mostrarConsolas(List<Consolas> consolas){
         if(consolas.isEmpty()){
-            System.out.println("No hay jugadores");
+            System.out.println("No hay consolas");
         }else{
             consolas.forEach(System.out::println);
         }
