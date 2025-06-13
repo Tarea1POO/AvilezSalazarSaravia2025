@@ -8,11 +8,11 @@ public class JugadoresView {
 
     public void mostrarMenu(){
         System.out.println(" MENÚ DE JUGADORES ");
-        System.out.println("1.- Listar Jugadores:");
-        System.out.println("2.- Crear Jugador:");
-        System.out.println("3.- Editar Jugador:");
-        System.out.println("4.- Eliminar Jugador:");
-        System.out.println("5.- Salir:");
+        System.out.println("1.- Listar Jugadores 🗒️ ");
+        System.out.println("2.- Crear Jugador 🔧 ");
+        System.out.println("3.- Editar Jugador 🛠️ ");
+        System.out.println("4.- Eliminar Jugador ❌");
+        System.out.println("5.- Salir 🔑");
         System.out.println("Indique una opción 😊: ");
 
     }

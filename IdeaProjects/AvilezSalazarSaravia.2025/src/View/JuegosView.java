@@ -7,12 +7,12 @@ public class JuegosView {
     private Scanner teclado=new Scanner(System.in);
 
     public void mostrarMenu(){
-        System.out.println(" MENÚ DE JUEGOS ");
-        System.out.println("1.- Listar Juegos:");
-        System.out.println("2.- Crear Juegos: ");
-        System.out.println("3.- Editar Juegos: ");
-        System.out.println("4.- Eliminar Juegos: ");
-        System.out.println("5.- Salir: ");
+        System.out.println(" 🎮 MENÚ DE JUEGOS 🎮 ");
+        System.out.println("1.- Listar Juegos 🗒️");
+        System.out.println("2.- Crear Juego 🔧 ");
+        System.out.println("3.- Editar Juego 🛠️ ");
+        System.out.println("4.- Eliminar Juego ❌ ");
+        System.out.println("5.- Salir 🔑");
         System.out.println("Indique una opción 😊: ");
 
     }
