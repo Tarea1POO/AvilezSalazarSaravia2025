@@ -29,24 +29,33 @@ public class JuegosView {
 
         System.out.println("Titulo: ");
         String titulo = teclado.nextLine();
+        while(!titulo.matches("[a-zA-Z]+")){
+            System.out.println("⚠️ Título no válido, inténtelo de nuevo ⚠️");
+            System.out.println("Título: ");
+            titulo = teclado.nextLine();
+        }
 
         System.out.println("Género: ");
         String genero = teclado.nextLine();
-
         while(!genero.matches("[a-zA-Z]+")){
-            System.out.println("Género no válido, inténtelo de nuevo");
+            System.out.println("⚠️ Género no válido, inténtelo de nuevo ⚠️");
             System.out.println("Género: ");
             genero = teclado.nextLine();
         }
+
         System.out.println("Consola compatible:");
         String consola_compatible = teclado.nextLine();
+        while(!consola_compatible.matches("[a-zA-Z]+")){
+            System.out.println("⚠️ Consola no compatible, inténtelo de nuevo ⚠️");
+            System.out.println("Consola compatible: ");
+            genero = teclado.nextLine();
+        }
 
         int precio = 0;
         System.out.println("Precio:");
         String precioS = teclado.nextLine();
-
         while(!precioS.matches("\\d{1,6}")){
-            System.out.println("Precio no válido, inténtelo de nuevo");
+            System.out.println("⚠️ Precio no válido, inténtelo de nuevo ⚠️");
             System.out.println("");
             System.out.print("Precio: ");
             precioS = teclado.nextLine();
@@ -72,7 +81,7 @@ public class JuegosView {
 
     public int leerIdEliminar(){
         System.out.println(" ");
-        System.out.println("Indique el ID a eliminar: ");
+        System.out.println("Ingrese el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
 
