@@ -26,6 +26,7 @@ public class JuegosView {
     public Juegos leerNuevoJuego(){
         System.out.println(" ");
         System.out.println("🎯 CREANDO UN NUEVO JUEGO 🎯");
+
         System.out.println("Titulo: ");
         String titulo = teclado.nextLine();
 

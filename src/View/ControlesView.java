@@ -23,7 +23,9 @@ public class ControlesView {
         }
     }
 
-    public Controles leerNuevoControl() {
+    public Controles leerNuevoControl(){
+        System.out.println(" ");
+        System.out.println("🎮 CREANDO UN NUEVO CONTROL 🎮");
         System.out.println("Tipo: ");
         String tipo = teclado.nextLine();
         System.out.println("Consola compatible: ");

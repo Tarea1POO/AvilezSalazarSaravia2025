@@ -33,6 +33,8 @@ public class ConsolasDAO{
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado = stmt.executeQuery(sql);
             while(resultado.next()){
+                System.out.println("");
+                System.out.println("LISTA DE CONSOLAS REGISTRADAS 😜");
                 consolas.add(new Consolas(resultado.getInt("id_consola"),
                         resultado.getString("nombre"),
                         resultado.getString ("fabricante"),

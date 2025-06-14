@@ -33,6 +33,8 @@ public class ControlesDAO {
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado = stmt.executeQuery(sql);
             while(resultado.next()){
+                System.out.println("");
+                System.out.println("LISTA DE CONTROLES REGISTRADOS 😜");
                 controles.add(new Controles(resultado.getInt("id_control"),
                         resultado.getString("tipo"),
                         resultado.getString ("consola_compatible"),

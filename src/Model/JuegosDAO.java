@@ -35,6 +35,8 @@ public class JuegosDAO {
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado = stmt.executeQuery(sql);
             while(resultado.next()){
+                System.out.println("");
+                System.out.println("LISTA DE JUEGOS REGISTRADOS 😜");
                 juegos.add(new Juegos(resultado.getInt("id_juego"),
                         resultado.getString("titulo"),
                         resultado.getString ("genero"),

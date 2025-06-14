@@ -24,6 +24,8 @@ public class ConsolasView {
     }
 
     public Consolas leerNuevaConsola(){
+        System.out.println(" ");
+        System.out.println("🎰 CREANDO UNA NUEVA CONSOLA 🎰");
         System.out.println("nombre: ");
         String nombre = teclado.nextLine();
         System.out.println("fabricante: ");

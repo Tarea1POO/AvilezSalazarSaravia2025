@@ -25,17 +25,48 @@ public class JugadoresView{
     }
 
     public Jugadores leerNuevoJugador(){
+        String nombre = "";
         System.out.println("");
-        System.out.println("👾 CREANDO NUEVO JUGADOR 👾");
-        System.out.print("Nombre: ");
-        String nombre = teclado.nextLine();
-        System.out.print("Nickname: ");
-        String nickName = teclado.nextLine();
-        System.out.print("Edad: ");
-        int edad = Integer.parseInt(teclado.nextLine());
+        while(nombre.trim().isEmpty()){
+            System.out.println("👾 CREANDO NUEVO JUGADOR 👾");
+            System.out.println("Nombre: ");
+            nombre = teclado.nextLine();
+            if(nombre.trim().isEmpty()){
+                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+            }
+        }
+
+        String nickname = "";
+        System.out.println("");
+        while(nombre.trim().isEmpty()){
+            System.out.println("Nickname: ");
+            nickname = teclado.nextLine();
+            if(nombre.trim().isEmpty()){
+                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+            }
+        }
+
+        int edad = -1;
+        while(true){
+            System.out.println("Edad: ");
+            String entradaUser = teclado.nextLine();
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                continue;
+            }
+            try{
+                edad = Integer.parseInt(entradaUser);
+                if(edad <=0 ){
+                    System.out.println("⚠️ Solo debe ingresar números enteros positivos, inténtelo de nuevo ⚠️");
+                }
+                break;
+            }catch(NumberFormatException e){
+                System.out.println("⚠️ No puede ingresar carácteres especiales, inténtelo de nuevo ⚠️");
+            }
+        }
         Jugadores ju = new Jugadores();
         ju.setNombre(nombre);
-        ju.setNickname(nickName);
+        ju.setNickname(nickname);
         ju.setEdad(edad);
         return ju;
     }
@@ -49,11 +80,43 @@ public class JugadoresView{
     }
 
     public int leerIdEliminar(){
-        System.out.print("Indique el ID a eliminar: ");
-        return Integer.parseInt(teclado.nextLine());
+        int id = -1;
+        while(true){
+            System.out.println("Ingrese el ID a eliminar: ");
+            String entradaUser = teclado.nextLine().trim();
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                continue;
+            }
+           try{
+                id = Integer.parseInt(entradaUser);
+                if(id <= 0){
+                    System.out.println("⚠️ Solo debe ingresar números enteros positivos, inténtelo de nuevo ⚠️");
+                    continue;
+                }
+                break;
+           }catch(NumberFormatException e){
+               System.out.println("⚠️ Solo debe ingresar dígitos, inténtelo de nuevo ⚠️");
+           }
+        }
+        return id;
     }
 
     public int leerOpcion(){
-        return Integer.parseInt(teclado.nextLine());
+        int opcion=-1;
+        while(true){
+            String entradaUser = teclado.nextLine().trim();
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                continue;
+            }
+            try{
+                opcion = Integer.parseInt(entradaUser);
+                break;
+            }catch(NumberFormatException e){
+                System.out.println("⚠️ Ingresa un número del [1-5]");
+            }
+        }
+        return opcion;
     }
 }
