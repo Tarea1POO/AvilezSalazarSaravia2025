@@ -3,16 +3,18 @@ import Model.Controles;
 import java.util.*;
 public class ControlesView {
     private Scanner teclado = new Scanner(System.in);
+
     public void mostrarMenu(){
         System.out.println(" ");
         System.out.println(" 🎮😋 MENÚ DE CONTROLES 🎮😋");
-        System.out.println("1.- Listar CONTROLES:");
-        System.out.println("2.- Crear Control");
-        System.out.println("3.- Editar Control");
-        System.out.println("4.- Eliminar Control");
-        System.out.println("5.- Salir");
+        System.out.println("1.- Listar Controles 📄");
+        System.out.println("2.- Crear Control 🔧");
+        System.out.println("3.- Editar Control 🛠️");
+        System.out.println("4.- Eliminar Control ❌");
+        System.out.println("5.- Salir 🔑");
         System.out.print("Indique una opción 😁: ");
     }
+
     public void mostrarControles (List<Controles> controles){
         if( controles.isEmpty()){
             System.out.println("No hay controles");
@@ -20,6 +22,7 @@ public class ControlesView {
             controles.forEach(System.out::println);
         }
     }
+
     public Controles leerNuevoControl() {
         System.out.println("Tipo: ");
         String tipo = teclado.nextLine();
@@ -33,6 +36,7 @@ public class ControlesView {
         con.setEstado(estado);
         return con;
     }
+
     public Controles leerControlesActualizados(){
         System.out.println("Ingrese el ID del control a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
@@ -40,10 +44,12 @@ public class ControlesView {
         controles.setId_control(id);
         return controles;
     }
+
     public int leerIdEliminar(){
         System.out.println("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
+
     public int leerOpcion(){
         return Integer.parseInt(teclado.nextLine());
     }

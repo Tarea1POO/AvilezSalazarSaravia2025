@@ -6,7 +6,7 @@ public class JuegosView {
 
     public void mostrarMenu(){
         System.out.println(" ");
-        System.out.println(" 🕹️ MENÚ DE JUEGOS  🕹️ ");
+        System.out.println(" 🕹️♦️ MENÚ DE JUEGOS ♦️🕹️ ");
         System.out.println("1.- Listar Juegos 🗒️");
         System.out.println("2.- Crear Juegos 🔧");
         System.out.println("3.- Editar Juegos 🛠️");
