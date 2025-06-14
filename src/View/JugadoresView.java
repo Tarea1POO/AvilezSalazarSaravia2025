@@ -1,5 +1,7 @@
 package View;
 import Model.Jugadores;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.*;
 public class JugadoresView {
     private Scanner teclado = new Scanner(System.in);
@@ -12,6 +14,7 @@ public class JugadoresView {
         System.out.println("4.- Eliminar Jugador");
         System.out.println("5.- Salir");
         System.out.print("Indique una opción 😁: ");
+        System.out.print("");
     }
     public void mostrarJugadores (List<Jugadores> jugadores){
         if( jugadores.isEmpty()){
@@ -21,13 +24,13 @@ public class JugadoresView {
         }
     }
     public Jugadores leerNuevoJugador(){
-        System.out.println(" ");
-        System.out.println("Ingrese los datos del nuevo jugador");
+        System.out.println("");
+        System.out.println("👾 CREANDO NUEVO JUGADOR 👾");
         System.out.print("Nombre: ");
         String nombre = teclado.nextLine();
         System.out.print("Nickname: ");
         String nickName = teclado.nextLine();
-        System.out.print("Edad:");
+        System.out.print("Edad: ");
         int edad = Integer.parseInt(teclado.nextLine());
         Jugadores ju = new Jugadores();
         ju.setNombre(nombre);

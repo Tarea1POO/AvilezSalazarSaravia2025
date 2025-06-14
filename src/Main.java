@@ -15,9 +15,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        int opcion;
+        String opcion;
 
-        do {
+        do{
             System.out.println("🎮🕹️ MENÚ PRINCIPAL 🕹️🎮");
             System.out.println("1.- Gestionar Jugadores");
             System.out.println("2.- Gestionar Juegos");
@@ -25,26 +25,26 @@ public class Main {
             System.out.println("4.- Gestionar Controles");
             System.out.println("5.- Salir");
             System.out.print("Indique una opción: ");
-            opcion = teclado.nextInt();
+            opcion = teclado.next();
 
-            switch (opcion){
-                case 1:
+            switch (opcion.toLowerCase()){
+                case "1":
                     new JugadoresController().iniciar();
                     break;
-                case 2:
+                case "2":
                     new JuegosController().iniciar();
                     break;
-                case 3:
+                case "3":
                     new ConsolasController().iniciar();
                     break;
-                case 4:
+                case "4":
                     new ControlesController().iniciar();
                     break;
-                case 5:
+                case "5":
                     System.out.println("Saliendo del programa!....😜");
                 default:
-                    System.out.println("Opción inválida, ingrese una opción del [1 al 5] 😒");
+                    System.out.println("Opción inválida, ingrese una opción del [1 al 5]");
             }
-        }while(opcion!=5);
+        }while(!opcion.equalsIgnoreCase("5"));
     }
 }
