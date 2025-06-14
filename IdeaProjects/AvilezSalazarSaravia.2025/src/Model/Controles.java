@@ -53,11 +53,11 @@ public class Controles {
 
     @Override
     public String toString() {
-        return "Controles{" +
-                "id_control=" + id_control +
-                ", tipo='" + tipo + '\'' +
-                ", consola_compatible='" + consola_compatible + '\'' +
-                ", estado='" + estado + '\'' +
+        return "Control {" +
+                "ID control:" + id_control +
+                ", Tipo:'" + tipo + '\'' +
+                ", Consola Compatible:'" + consola_compatible + '\'' +
+                ", Estado:'" + estado + '\'' +
                 '}';
     }
 }

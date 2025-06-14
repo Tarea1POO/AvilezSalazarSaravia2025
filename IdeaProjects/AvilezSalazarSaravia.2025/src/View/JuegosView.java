@@ -10,10 +10,10 @@ public class JuegosView {
         System.out.println(" 🎮 MENÚ DE JUEGOS 🎮 ");
         System.out.println("1.- Listar Juegos 🗒️");
         System.out.println("2.- Crear Juego 🔧 ");
-        System.out.println("3.- Editar Juego 🛠️ ");
+        System.out.println("3.- Actualizar Juego 🛠️ ");
         System.out.println("4.- Eliminar Juego ❌ ");
         System.out.println("5.- Salir 🔑");
-        System.out.println("Indique una opción 😊: ");
+        System.out.print("Indique una opción 😊: ");
 
     }
 
@@ -28,13 +28,13 @@ public class JuegosView {
     }
 
     public Juegos leerNuevoJuego() {
-        System.out.println("Titulo: ");
+        System.out.print("Titulo: ");
         String titulo = teclado.nextLine();
-        System.out.println("Genero: ");
+        System.out.print("Genero: ");
         String genero = teclado.nextLine();
-        System.out.println("Consola compatible:");
+        System.out.print("Consola compatible:");
         String consola_compatible = teclado.nextLine();
-        System.out.println("Precio:");
+        System.out.print("Precio:");
         int precio = Integer.parseInt(teclado.nextLine());
         Juegos jue= new Juegos();
         jue.setTitulo(titulo);
@@ -45,7 +45,7 @@ public class JuegosView {
     }
 
     public Juegos leerJuegosActualizados(){
-        System.out.println("Ingrese el ID del juego a actualizar: ");
+        System.out.print("Ingrese el ID del juego a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
         Juegos juegos=leerNuevoJuego();
         juegos.setId_juego(id);
@@ -53,7 +53,7 @@ public class JuegosView {
     }
 
     public int leerIdEliminar(){
-        System.out.println("Indique el ID a eliminar: ");
+        System.out.print("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
 

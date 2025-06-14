@@ -41,6 +41,7 @@ public class JuegosDAO {
             e.printStackTrace();
         }return juegos;
     }
+
     public void actualizarJuegos(Juegos jue ){
 
         String sql="UPDATE juegos SET titulo= ?, genero=?, consola_compatible=?, precio=?WHERE id_juego=?";

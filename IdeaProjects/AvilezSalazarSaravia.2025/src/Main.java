@@ -3,15 +3,6 @@ import Controller.JugadoresController;
 import Controller.JuegosController;
 import Controller.ConsolasController;
 import Controller.ControlesController;
-import Model.JugadoresDAO;
-import Model.JuegosDAO;
-import Model.ConsolasDAO;
-import Model.ControlesDAO;
-import View.JuegosView;
-import View.JugadoresView;
-import View.JuegosView;
-import View.ConsolasView;
-import View.ControlesView;
 public class Main{
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
@@ -23,9 +14,10 @@ public class Main{
             System.out.println("3- Gestionar Consolas");
             System.out.println("4- Gestionar Controles");
             System.out.println("5- Salir");
-            System.out.println("Indique una opción:");
+            System.out.print("Ingrese una opción:");
             opcion = teclado.nextInt();
-
+            //Según la opción se instancia el controlador correspondiente,
+            //para llevar a cabo la operación de cada módulo
             switch (opcion) {
                 case 1:
                     new JugadoresController().iniciar();
@@ -43,7 +35,7 @@ public class Main{
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Opción invalida ingrese una opción del [1-5]");
+                    System.out.println("Opción invalida, ingrese una opción del [1-5]");
             }
         } while (opcion != 5);
     }

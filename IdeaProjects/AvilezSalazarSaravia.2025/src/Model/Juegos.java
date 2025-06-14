@@ -62,12 +62,12 @@ public class Juegos {
 
     @Override
     public String toString() {
-        return "Juegos{" +
-                "id_juego=" + id_juego +
-                ", titulo='" + titulo + '\'' +
-                ", genero='" + genero + '\'' +
-                ", consola_compatible='" + consola_compatible + '\'' +
-                ", precio=" + precio +
+        return "Juego {" +
+                "ID Juego:" + id_juego +
+                ", Titulo:'" + titulo + '\'' +
+                ", Género:'" + genero + '\'' +
+                ", Consola Compatible:'" + consola_compatible + '\'' +
+                ", Precio:$" + precio +
                 '}';
     }
 }

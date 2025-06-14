@@ -54,11 +54,11 @@ public class Consolas {
 
     @Override
     public String toString() {
-        return "Consolas{" +
-                "id_consola=" + id_consola +
-                ", nombre='" + nombre + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", anio_lanzamiento=" + anio_lanzamiento +
+        return "Consola {" +
+                "ID Consola:" + id_consola +
+                ", Nombre:'" + nombre + '\'' +
+                ", Fabricante:'" + fabricante + '\'' +
+                ", Año de lanzamiento:" + anio_lanzamiento +
                 '}';
     }
 }

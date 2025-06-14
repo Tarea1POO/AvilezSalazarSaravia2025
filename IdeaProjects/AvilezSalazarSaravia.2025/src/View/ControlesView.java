@@ -10,10 +10,10 @@ public class ControlesView {
         System.out.println(" MENÚ DE CONTROLES ");
         System.out.println("1.- Listar Controles 🗒️");
         System.out.println("2.- Crear Control 🔧");
-        System.out.println("3.- Editar Control 🛠️ ");
+        System.out.println("3.- Actualizar Control 🛠️ ");
         System.out.println("4.- Eliminar Control ❌ ");
         System.out.println("5.- Salir 🔑");
-        System.out.println("Indique una opción: 😊 ");
+        System.out.print("Indique una opción: 😊 ");
 
     }
 
@@ -28,11 +28,11 @@ public class ControlesView {
     }
 
     public Controles leerNuevoControl() {
-        System.out.println("Tipo: ");
+        System.out.print("Tipo: ");
         String tipo = teclado.nextLine();
-        System.out.println("Consola compatible: ");
+        System.out.print("Consola compatible: ");
         String consola_compatible = teclado.nextLine();
-        System.out.println("Estado:");
+        System.out.print("Estado:");
         String estado= teclado.nextLine();
         Controles con= new Controles();
         con.setTipo(tipo);
@@ -42,7 +42,7 @@ public class ControlesView {
     }
 
     public Controles leerControlesActualizados(){
-        System.out.println("Ingrese el ID del control a actualizar: ");
+        System.out.print("Ingrese el ID del control a actualizar: ");
         int id =Integer.parseInt(teclado.nextLine());
         Controles controles=leerNuevoControl();
         controles.setId_control(id);
@@ -50,7 +50,7 @@ public class ControlesView {
     }
 
     public int leerIdEliminar(){
-        System.out.println("Indique el ID a eliminar: ");
+        System.out.print("Indique el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
 

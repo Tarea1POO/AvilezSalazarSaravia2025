@@ -9,6 +9,7 @@ public class Jugadores {
     //CONSTRUCTOR VACIO
     public Jugadores() {
     }
+
     //CONSTRUCTOR CON DATOS
     public Jugadores(int id_jugador, String nombre, String nickname, int edad) {
         this.id_jugador = id_jugador;
@@ -52,11 +53,14 @@ public class Jugadores {
 
     @Override
     public String toString() {
-        return "Jugadores{" +
-                "id_jugador=" + id_jugador +
-                ", nombre='" + nombre + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", edad=" + edad +
+        return "Jugador {" +
+                "ID Jugador:" + id_jugador +
+                ", Nombre:'" + nombre + '\'' +
+                ", Nickname:'" + nickname + '\'' +
+                ", Edad:" + edad +
                 '}';
     }
 }
+
+
+

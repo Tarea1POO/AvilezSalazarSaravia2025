@@ -21,10 +21,19 @@ public class ConsolasController {
 
             switch(opcion){
                 case 1 -> view.mostrarConsolas(dao.obtenerTodos());
-                case 2 -> dao.crearConsolas(view.leerNuevaConsola());
-                case 3 -> dao.actualizarConsolas(view.leerConsolasActualizadas());
+                case 2 -> {
+                    dao.crearConsolas(view.leerNuevaConsola());
+                    System.out.println("Consola creado y agregado a la BD correctamente");
+                }
+                case 3 -> {
+                    dao.actualizarConsolas(view.leerConsolasActualizadas());
+                    System.out.println("Consola actualizado correctamente en la BD");
+                }
                 case 4 -> dao.eliminarConsola(view.leerIdEliminar());
                 case 5 -> System.out.println("Volviendo al menu principal...👌");
+                default -> {
+                    System.out.println("Opción invalida, Ingrese una opción del [1-5]");
+                }
             }
         }while(opcion !=5 );
     }
