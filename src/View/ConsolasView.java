@@ -17,7 +17,8 @@ public class ConsolasView {
 
     public void mostrarConsolas(List<Consolas> consolas){
         if(consolas.isEmpty()){
-            System.out.println("No hay consolas");
+            System.out.println("");
+            System.out.println("-- No hay consolas registradas --");
         }else{
             consolas.forEach(System.out::println);
         }
@@ -48,7 +49,7 @@ public class ConsolasView {
     }
 
     public int leerIdEliminar(){
-        System.out.println("Ingrese el id a eliminar: ");
+        System.out.println("Ingrese el ID a eliminar: ");
         return Integer.parseInt(teclado.nextLine());
     }
 

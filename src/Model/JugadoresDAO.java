@@ -32,9 +32,9 @@ public class JugadoresDAO {
         String sql = "SELECT * FROM jugadores";
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado = stmt.executeQuery(sql);
+            System.out.println("");
+            System.out.println("LISTA DE JUGADORES REGISTRADOS 😜");
             while(resultado.next()){
-                System.out.println("");
-                System.out.println("LISTA DE JUGADORES REGISTRADOS 😜");
                 jugadores.add(new Jugadores(resultado.getInt("id_jugador"),
                         resultado.getString("nombre"),
                         resultado.getString ("nickname"),
@@ -55,7 +55,6 @@ public class JugadoresDAO {
             stmt.executeUpdate();
             System.out.println("");
             System.out.println("-- Jugador Actualizado Correctamente 🙃");
-            System.out.println("");
         }catch(SQLException e){
             e.printStackTrace();
         }

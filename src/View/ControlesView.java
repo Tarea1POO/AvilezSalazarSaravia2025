@@ -17,7 +17,8 @@ public class ControlesView {
 
     public void mostrarControles (List<Controles> controles){
         if( controles.isEmpty()){
-            System.out.println("No hay controles");
+            System.out.println("");
+            System.out.println("-- No hay controles registrados --");
         } else{
             controles.forEach(System.out::println);
         }

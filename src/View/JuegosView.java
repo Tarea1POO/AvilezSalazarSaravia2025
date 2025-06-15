@@ -12,12 +12,13 @@ public class JuegosView {
         System.out.println("3.- Editar Juegos 🛠️");
         System.out.println("4.- Eliminar Juegos ❌");
         System.out.println("5.- Salir 🔑");
-        System.out.println("Indique una opción 😁: ");
+        System.out.print("Indique una opción 😁: ");
     }
 
     public void mostrarJuegos (List<Juegos> juegos){
         if( juegos.isEmpty()){
-            System.out.println("No hay juegos registrados");
+            System.out.println("");
+            System.out.println("-- No hay juegos registrados --");
         } else{
             juegos.forEach(System.out::println);
         }
@@ -47,8 +48,9 @@ public class JuegosView {
         String consola_compatible = teclado.nextLine();
         while(!consola_compatible.matches("[a-zA-Z]+")){
             System.out.println("⚠️ Consola no compatible, inténtelo de nuevo ⚠️");
+            System.out.println("");
             System.out.println("Consola compatible: ");
-            genero = teclado.nextLine();
+            consola_compatible = teclado.nextLine();
         }
 
         int precio = 0;
