@@ -7,10 +7,10 @@ public class JugadoresView{
     public void mostrarMenu(){
         System.out.println("");
         System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
-        System.out.println("1.- Listar Jugadores 📄");
-        System.out.println("2.- Crear Jugador 🔧");
-        System.out.println("3.- Editar Jugador 🛠️");
-        System.out.println("4.- Eliminar Jugador ❌");
+        System.out.println("1.- Listar Jugador/es 📄");
+        System.out.println("2.- Crear Jugador/es 🔧");
+        System.out.println("3.- Editar Jugador/es 🛠️");
+        System.out.println("4.- Eliminar Jugador/es ❌");
         System.out.println("5.- Salir 🔑");
         System.out.print("Indique una opción 😁: ");
         System.out.print("");
@@ -29,17 +29,18 @@ public class JugadoresView{
     //FUNCIÓN PARA LEER LOS DATOS DE UN NUEVO JUGADOR
     public Jugadores leerNuevoJugador(){
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN NOMBRE OBLIGATORIO
-        String nombre="";
+        String nombre = "";
+        System.out.println("");
         System.out.println("👾 CREANDO NUEVO JUGADOR 👾");
         while(nombre.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
             System.out.print("Nombre: ");
-            nombre=teclado.nextLine();
+            nombre = teclado.nextLine();
             if(nombre.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
             }
         }
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN APODO OBLIGATORIO
-        String nickname="";
+        String nickname = "";
         while(nickname.trim().isEmpty()) {
             System.out.print("Nickname: ");
             nickname = teclado.nextLine();
@@ -51,7 +52,7 @@ public class JugadoresView{
         int edad = -1;
         while(true){
             System.out.print("Edad: ");
-            String entradaUser= teclado.nextLine().trim();
+            String entradaUser = teclado.nextLine().trim();
 
             //VALIDAR QUE NO SEA UN CAMPO VACÍO
             if(entradaUser.isEmpty()){

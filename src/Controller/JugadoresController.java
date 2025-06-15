@@ -21,7 +21,9 @@ public class JugadoresController {
             switch(opcion){
                 case 1 -> view.mostrarJugadores(dao.obtenerTodos());
                 case 2 -> dao.crearJugador(view.leerNuevoJugador());
-                case 3 -> dao.actualizarJugadores(view.leerJugadoresActualizados());
+                case 3 -> { int id = view.leerIdActualizar();
+                    dao.actualizarJugadores(view.leerJugadoresActualizados(id));
+                }
                 case 4 -> dao.eliminarJugador(view.leerIdEliminar());
                 case 5 -> System.out.println("Adios!!!!...");
             }

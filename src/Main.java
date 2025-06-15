@@ -43,9 +43,7 @@ public class Main {
                     break;
                 case "5":
                     System.out.println("Saliendo del programa!....😜");
-                default:
-                    System.out.println("Opción inválida, ingrese una opción del [1 al 5]");
-            }
+                }
         }while(!opcion.equalsIgnoreCase("5"));
     }
 }

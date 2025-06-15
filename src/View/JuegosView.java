@@ -7,12 +7,13 @@ public class JuegosView {
     public void mostrarMenu(){
         System.out.println(" ");
         System.out.println(" 🕹️♦️ MENÚ DE JUEGOS ♦️🕹️ ");
-        System.out.println("1.- Listar Juegos 🗒️");
-        System.out.println("2.- Crear Juegos 🔧");
-        System.out.println("3.- Editar Juegos 🛠️");
-        System.out.println("4.- Eliminar Juegos ❌");
+        System.out.println("1.- Listar Juego/s 🗒️");
+        System.out.println("2.- Crear Juego/s 🔧");
+        System.out.println("3.- Editar Juego/s 🛠️");
+        System.out.println("4.- Eliminar Juego/s ❌");
         System.out.println("5.- Salir 🔑");
         System.out.print("Indique una opción 😁: ");
+        System.out.print("");
     }
 
     public void mostrarJuegos (List<Juegos> juegos){
@@ -28,37 +29,35 @@ public class JuegosView {
         System.out.println(" ");
         System.out.println("🎯 CREANDO UN NUEVO JUEGO 🎯");
 
-        System.out.println("Titulo: ");
+        System.out.print("Titulo: ");
         String titulo = teclado.nextLine();
-        while(!titulo.matches("[a-zA-Z]+")){
+        while(!titulo.matches("[a-zA-Z0-9_]+")){
             System.out.println("⚠️ Título no válido, inténtelo de nuevo ⚠️");
-            System.out.println("Título: ");
+            System.out.print("Título: ");
             titulo = teclado.nextLine();
         }
 
-        System.out.println("Género: ");
+        System.out.print("Género: ");
         String genero = teclado.nextLine();
         while(!genero.matches("[a-zA-Z]+")){
             System.out.println("⚠️ Género no válido, inténtelo de nuevo ⚠️");
-            System.out.println("Género: ");
+            System.out.print("Género: ");
             genero = teclado.nextLine();
         }
 
-        System.out.println("Consola compatible:");
+        System.out.print("Consola compatible:");
         String consola_compatible = teclado.nextLine();
         while(!consola_compatible.matches("[a-zA-Z]+")){
             System.out.println("⚠️ Consola no compatible, inténtelo de nuevo ⚠️");
-            System.out.println("");
-            System.out.println("Consola compatible: ");
+            System.out.print("Consola compatible: ");
             consola_compatible = teclado.nextLine();
         }
 
-        int precio = 0;
-        System.out.println("Precio:");
+        int precio = -1;
+        System.out.print("Precio:");
         String precioS = teclado.nextLine();
         while(!precioS.matches("\\d{1,6}")){
             System.out.println("⚠️ Precio no válido, inténtelo de nuevo ⚠️");
-            System.out.println("");
             System.out.print("Precio: ");
             precioS = teclado.nextLine();
         }

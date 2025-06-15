@@ -20,7 +20,7 @@ public class ConsolasDAO{
             stmt.setInt(3, co.getAnio_lanzamiento());
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Consola Nueva Creada Correctamente 🎲");
+            System.out.println("-- Consola Nueva Creada Correctamente 🎲");
             System.out.println("");
         }catch(SQLException e){
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class ConsolasDAO{
             stmt.setInt(4, co.getId_consola());
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Consola Actualizada Correctamente 🎲");
+            System.out.println("-- Consola Actualizada Correctamente 🎲");
             System.out.println("");
         }catch(SQLException e){
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class ConsolasDAO{
             stmt.setInt(1,id);
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Consola Eliminada Correctamente 🎲");
+            System.out.println("-- Consola Eliminada Correctamente 🎲");
             System.out.println("");
         }catch(SQLException e){
             e.printStackTrace();
