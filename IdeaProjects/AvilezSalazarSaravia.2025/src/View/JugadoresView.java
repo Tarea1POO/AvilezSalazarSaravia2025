@@ -7,6 +7,7 @@ public class JugadoresView {
     private Scanner teclado=new Scanner(System.in);
 
     public void mostrarMenu(){
+        System.out.println(" ");
         System.out.println(" MENÚ DE JUGADORES ");
         System.out.println("1.- Listar Jugadores 🗒️ ");
         System.out.println("2.- Crear Jugador 🔧 ");
@@ -14,7 +15,6 @@ public class JugadoresView {
         System.out.println("4.- Eliminar Jugador ❌");
         System.out.println("5.- Salir 🔑");
         System.out.print("Ingrese una opción 😊: ");
-
     }
 
     //FUNCIÓN PARA MOSTRAR POR PANTALLA LA LISTA DE JUGADORES

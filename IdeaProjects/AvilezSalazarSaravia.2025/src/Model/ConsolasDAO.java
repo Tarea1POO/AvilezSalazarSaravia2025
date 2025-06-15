@@ -11,6 +11,7 @@ public class ConsolasDAO {
             e.printStackTrace();
         }
     }
+    //CARGA UNA NUEVA CONSOLA EN LA BD
     public void crearConsolas(Consolas co ){
         String sql="INSERT INTO consolas(nombre, fabricante, anio_lanzamiento) VALUES(?,?,?)";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -23,13 +24,17 @@ public class ConsolasDAO {
         }
 
     }
+
+    //ADQUIERE TODAS LAS CONSOLAS DE LA BD
     public List<Consolas> obtenerTodos(){
         List<Consolas> consolas=new ArrayList<>();
         String sql="SELECT * FROM consolas";
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado= stmt.executeQuery(sql);
             while(resultado.next()){
-                consolas.add(new Consolas(resultado.getInt("id_consola"),
+                //CARGA CADA CONSOLA EN UN OBJETO Y LO AÑADE A LA LISTA
+                consolas.add(new Consolas(
+                        resultado.getInt("id_consola"),
                         resultado.getString("nombre"),
                         resultado.getString ("fabricante"),
                         resultado.getInt("anio_lanzamiento")));
@@ -39,7 +44,10 @@ public class ConsolasDAO {
             e.printStackTrace();
         }return consolas;
     }
-    public void actualizarConsolas(Consolas co ){
+
+
+    //ACTUALIZA UNA CONSOLA EN LA BD
+    public boolean actualizarConsolas(Consolas co ){
 
         String sql="UPDATE consolas SET nombre= ?, fabricante=?, anio_lanzamiento=? WHERE id_consola=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -47,20 +55,24 @@ public class ConsolasDAO {
             stmt.setString(2, co.getFabricante());
             stmt.setInt(3, co.getAnio_lanzamiento());
             stmt.setInt(4, co.getId_consola());
-            stmt.executeUpdate();
+            int resultado=stmt.executeUpdate();
+            return resultado>0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
-
-    public void eliminarConsola(int id){
+    //ELIMINA UNA CONSOLA DE LA BD SEG´´UN EL ID
+    public boolean eliminarConsola(int id){
         String sql="DELETE FROM consolas WHERE id_consola=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
-            stmt.executeUpdate();
+            int filasAfectadas=stmt.executeUpdate();//retorna la cantidad de filas que se eliminaron
+            return filasAfectadas>0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 }

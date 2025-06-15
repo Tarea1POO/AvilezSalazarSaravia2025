@@ -68,7 +68,7 @@ public class JugadoresDAO {
         }
     }
 
-    //ELIMINA UN JUGADOR DE LA BD SEGUN EL ID
+    //ELIMINA UN JUGADOR DE LA BD SEGÚN EL ID
     public boolean eliminarJugador(int id){
         String sql="DELETE FROM jugadores WHERE id_jugador=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){

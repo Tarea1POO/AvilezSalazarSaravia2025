@@ -1,63 +1,153 @@
 package View;
 import Model.Juegos;
+import Model.Jugadores;
+
 import java.util.*;
 
 public class JuegosView {
 
-    private Scanner teclado=new Scanner(System.in);
+    private Scanner teclado = new Scanner(System.in);
 
-    public void mostrarMenu(){
-        System.out.println(" 🎮 MENÚ DE JUEGOS 🎮 ");
+    public void mostrarMenu() {
+        System.out.println(" ");
+        System.out.println(" MENÚ DE JUEGOS ");
         System.out.println("1.- Listar Juegos 🗒️");
         System.out.println("2.- Crear Juego 🔧 ");
         System.out.println("3.- Actualizar Juego 🛠️ ");
         System.out.println("4.- Eliminar Juego ❌ ");
         System.out.println("5.- Salir 🔑");
         System.out.print("Indique una opción 😊: ");
-
     }
 
+    //FUNCIÓN PARA MOSTRAR POR PANTALLA LA LISTA DE JUEGOS
     public void mostrarJuegos (List<Juegos> juegos){
-        if( juegos.isEmpty()){
+        if( juegos.isEmpty()){ //SI LA LISTA ESTA VACIA
             System.out.println("No hay juegos");
 
-
-        } else{
+        } else{ //SI TIENE ELEMENTOS
+            //RECORRE LA LISTA E IMPRIME CADA JUEGO
             juegos.forEach(System.out::println);
         }
     }
 
+    //FUNCIÓN PARA LEER LOS DATOS DE UN NUEVO JUEGO
     public Juegos leerNuevoJuego() {
-        System.out.print("Titulo: ");
-        String titulo = teclado.nextLine();
-        System.out.print("Genero: ");
-        String genero = teclado.nextLine();
-        System.out.print("Consola compatible:");
-        String consola_compatible = teclado.nextLine();
-        System.out.print("Precio:");
-        int precio = Integer.parseInt(teclado.nextLine());
-        Juegos jue= new Juegos();
-        jue.setTitulo(titulo);
-        jue.setGenero(genero);
-        jue.setConsola_compatible(consola_compatible);
-        jue.setPrecio(precio);
-        return jue;
-    }
 
-    public Juegos leerJuegosActualizados(){
-        System.out.print("Ingrese el ID del juego a actualizar: ");
-        int id =Integer.parseInt(teclado.nextLine());
-        Juegos juegos=leerNuevoJuego();
-        juegos.setId_juego(id);
+        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN TITULO OBLIGATORIO
+        String titulo="";
+        while(titulo.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
+            System.out.print("Titulo: ");
+            titulo=teclado.nextLine();
+            if(titulo.trim().isEmpty()){
+                System.out.println("⚠️ Campo requerido");
+            }
+        }
+
+        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN GENERO OBLIGATORIO
+        String genero="";
+        while(genero.trim().isEmpty()) {
+            System.out.print("Genero: ");
+            genero = teclado.nextLine();
+            if (genero.trim().isEmpty()) {
+                System.out.println("⚠️ Campo requerido");
+            }
+        }
+
+        String consola_compatible="";
+        while(consola_compatible.trim().isEmpty()) {
+            System.out.print("Consola compatible: ");
+            consola_compatible = teclado.nextLine();
+            if (consola_compatible.trim().isEmpty()) {
+                System.out.println("⚠️ Campo requerido");
+            }
+        }
+
+        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN PRECIO VALIDO
+        int precio=-1;
+        while(true){
+            System.out.print("Precio: ");
+            String entradaUser= teclado.nextLine().trim();
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido");
+                continue; //PARA VOLVER A PREGUNTAR EL PRECIO
+            }
+            try{
+                precio=Integer.parseInt(entradaUser);
+                if(precio <=0){
+                    System.out.println("⚠️ Solo debe ingresar números enteros positivos");
+                    continue; //PARA VOLVER A PREGUNTAR EL PRECIO
+                }
+                break; //SI EL PRECIO ES VALIDO, SE SALE
+            }catch(NumberFormatException e){//si el texto no es un numero se avisa al usuario
+                System.out.println("⚠️ Solo debe ingresar dígitos");
+            }
+        }
+
+        //CREA EL OBJETO JUEGO CON LOS DATOS OBTENIDOS
+        Juegos juegos= new Juegos();
+        juegos.setTitulo(titulo);
+        juegos.setGenero(genero);
+        juegos.setConsola_compatible(consola_compatible);
+        juegos.setPrecio(precio);
         return juegos;
     }
 
-    public int leerIdEliminar(){
-        System.out.print("Indique el ID a eliminar: ");
+    //FUNCIÓN PARA LEER LOS DATOS ACTUALIZADOS DE UN JUEGO YA EXISTENTE
+    public Juegos leerJuegosActualizados(int id){
+        Juegos jue=leerNuevoJuego();
+        //SE ASIGNA EL ID DEL JUEGO QUE SE ESTA MODIFICANDO
+        jue.setId_juego(id);
+        return jue;
+    }
+
+    //FUNCIÓN PARA LEER EL ID DEL JUEGO A ELIMINAR
+    public int leerIdEliminar() {
+        int id = -1;
+        while (true) {
+            System.out.print("Ingrese el ID a eliminar: ");
+            String entradaUser = teclado.nextLine().trim();
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido");
+                continue;
+            }
+            try {
+                id = Integer.parseInt(entradaUser);
+                if (id <= 0) {
+                    System.out.println("⚠️ Solo debe ingresar números enteros positivos");
+                    continue;
+                }
+                break;
+            }catch(NumberFormatException e){
+                System.out.println("⚠️ Solo debe ingresar dígitos");
+            }
+        }
+        return id;
+    }
+
+    //FUNCIÓN PARA LEER EL ID DEL JUEGO QUE SE VA A ACTUALIZAR
+    public int leerIdActualizar(){
+        System.out.print("Ingrese el ID del juego a actualizar:");
         return Integer.parseInt(teclado.nextLine());
     }
 
+    //FUNCIÓN PARA LEER LA OPCIÓN QUE EL USUARIO ESCOJA EN EL MENU
     public int leerOpcion(){
-        return Integer.parseInt(teclado.nextLine());
+        int opcion=-1;
+        while(true){
+            String entradaUser=teclado.nextLine().trim();
+            if(entradaUser.isEmpty()){
+                System.out.println("⚠️ Campo requerido");
+                continue;
+            }
+            try{
+                opcion=Integer.parseInt(entradaUser);
+                break;
+            }catch(NumberFormatException e){
+                System.out.println("⚠️ Ingresar un numero del [1-5]");
+            }
+        }
+        return opcion;
     }
 }

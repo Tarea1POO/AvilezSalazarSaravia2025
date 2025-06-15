@@ -11,6 +11,7 @@ public class JuegosDAO {
             e.printStackTrace();
         }
     }
+
     public void crearJuegos(Juegos jue ){
         String sql="INSERT INTO juegos(titulo, genero, consola_compatible, precio) VALUES(?,?,?,?)";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -18,12 +19,16 @@ public class JuegosDAO {
             stmt.setString(2, jue.getGenero());
             stmt.setString(3, jue.getConsola_compatible());
             stmt.setInt(4, jue.getPrecio());
+            //REALIZA LA ACTUALIZACION EN LA BD
             stmt.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
         }
 
     }
+
+
+    //ADQUIERE TODOS LOS JUEGOS DE LA BD
     public List<Juegos> obtenerTodos(){
         List<Juegos> juegos=new ArrayList<>();
         String sql="SELECT * FROM juegos";
@@ -42,7 +47,9 @@ public class JuegosDAO {
         }return juegos;
     }
 
-    public void actualizarJuegos(Juegos jue ){
+
+    //ACTUALIZA UN JUEGO EN LA BD
+    public boolean actualizarJuegos(Juegos jue ){
 
         String sql="UPDATE juegos SET titulo= ?, genero=?, consola_compatible=?, precio=?WHERE id_juego=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -51,20 +58,24 @@ public class JuegosDAO {
             stmt.setString(3, jue.getConsola_compatible());
             stmt.setInt(4, jue.getPrecio());
             stmt.setInt(5, jue.getId_juego());
-            stmt.executeUpdate();
+            int resultado=stmt.executeUpdate();
+            return resultado>0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
-
-    public void eliminarJuego(int id){
+    //ELIMINA UN JUEGO DE LA BD SEGUN EL ID
+    public boolean eliminarJuego(int id){
         String sql="DELETE FROM juegos WHERE id_juego=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
-            stmt.executeUpdate();
+            int filasAfectadas=stmt.executeUpdate();//retorna la cantidad de filas que se eliminaron
+            return filasAfectadas >0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 }

@@ -24,13 +24,16 @@ public class ControlesDAO {
 
     }
 
+    //ADQUIERE TODOS LOS CONTROLES DE LA BD
     public List<Controles> obtenerTodos(){
         List<Controles> controles=new ArrayList<>();
         String sql="SELECT * FROM controles";
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado= stmt.executeQuery(sql);
             while(resultado.next()){
-                controles.add(new Controles(resultado.getInt("id_control"),
+                //CARGA CADA CONTROL EN UN OBJETO Y LO AÑADE A LA LISTA
+                controles.add(new Controles
+                        (resultado.getInt("id_control"),
                         resultado.getString("tipo"),
                         resultado.getString ("consola_compatible"),
                         resultado.getString("estado")));
@@ -40,27 +43,31 @@ public class ControlesDAO {
             e.printStackTrace();
         }return controles;
     }
-    public void actualizarControles(Controles con ){
+    //ACTUALIZA CONTROLES EN LA BD
+    public boolean actualizarControles(Controles con ){
         String sql="UPDATE controles SET tipo= ?, consola_compatible=?, estado=? WHERE id_control=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, con.getTipo());
             stmt.setString(2, con.getConsola_compatible());
             stmt.setString(3, con.getEstado());
             stmt.setInt(4, con.getId_control());
-            stmt.executeUpdate();
+            int resultado=stmt.executeUpdate();
+            return resultado>0;
         }catch(SQLException e){
             e.printStackTrace();
         }
+        return false;
     }
-
-
-    public void eliminarControles(int id){
+    //ELIMINA CONTROLES DE LA BD SEGUN EL ID
+    public boolean eliminarControles(int id){
         String sql="DELETE FROM controles WHERE id_control=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
-            stmt.executeUpdate();
+            int filasAfectadas=stmt.executeUpdate();//retorna la cantidad de filas que se eliminaron
+            return filasAfectadas>0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 }
