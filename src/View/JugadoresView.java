@@ -17,89 +17,88 @@ public class JugadoresView {
         System.out.print("Ingrese una opción 😊: ");
     }
 
-    //FUNCIÓN PARA MOSTRAR POR PANTALLA LA LISTA DE JUGADORES
+    
     public void mostrarJugadores (List<Jugadores> jugadores){
         if( jugadores.isEmpty()){ //SI LA LISTA ESTA VACIA
             System.out.println("No hay jugadores");
 
 
-        } else{//SI TIENE ELEMENTOS
-            //RECORRE LA LISTA E IMPRIME CADA JUGADOR
+        } else{
             jugadores.forEach(System.out::println);
         }
     }
 
-    //FUNCIÓN PARA LEER LOS DATOS DE UN NUEVO JUGADOR
+  
     public Jugadores leerNuevoJugador() {
 
-        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN NOMBRE OBLIGATORIO
+       
         String nombre="";
-        while(true){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
+        while(true){
             System.out.print("Nombre: ");
             nombre=teclado.nextLine();
 
-            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+           
             if(nombre.isEmpty()){
                 System.out.println("⚠️ Campo requerido");
                 continue;
             }
 
-            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+          
             if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
                 System.out.println("⚠️ Solo debe contener letras y espacios");
-                continue;//PARA VOLVER A PREGUNTAR
+                continue;
             }
-            break;//PARA SALIR
+            break;
 
         }
 
-        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN APODO OBLIGATORIO
+       
         String nickname="";
         while(true){
             System.out.print("Nickname: ");
             nickname=teclado.nextLine();
 
-            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+          
             if(nickname.isEmpty()){
                 System.out.println("⚠️ Campo requerido");
-                continue;//PARA VOLVER A PREGUNTAR
+                continue;
             }
 
-            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+           
             if (!nickname.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
                 System.out.println("⚠️ Solo debe contener letras y espacios");
-                continue;//PARA VOLVER A PREGUNTAR
+                continue;
             }
-            break;//PARA SALIR
+            break;
 
         }
 
-        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UNA EDAD VALIDA
+        
         int edad=-1;
-        //SE REPETIRA HASTA UNA EDAD CORRECTA
+       
         while(true){
             System.out.print("Edad: ");
             String entradaUser= teclado.nextLine().trim();
 
-            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+         
             if(entradaUser.isEmpty()){
                 System.out.println("⚠️ Campo requerido");
-                continue; //PARA VOLVER A PREGUNTAR LA EDAD
+                continue;
             }
             try{
                 edad=Integer.parseInt(entradaUser);
                 if(edad <=0){
                     System.out.println("⚠️ Solo debe ingresar números enteros positivos");
-                    continue; //PARA VOLVER A PREGUNTAR LA EDAD
+                    continue; 
 
                 }
-                break; //SI LA EDAD ES VALIDA, SE SALE
-            }catch(NumberFormatException e){//si el texto no es un numero se avisa al usuario
+                break; 
+            }catch(NumberFormatException e){
                 System.out.println("⚠️ Solo debe ingresar dígitos");
             }
         }
 
-        //CREAR EL OBJETO JUGADOR CON LOS DATOS OBTENIDOS
+        
         Jugadores ju= new Jugadores();
         ju.setNombre(nombre);
         ju.setNickname(nickname);
@@ -108,15 +107,15 @@ public class JugadoresView {
     }
 
 
-    //FUNCIÓN PARA LEER LOS DATOS ACTUALIZADOS DE UN JUGADOR YA EXISTENTE
+   
     public Jugadores leerJugadoresActualizados(int id){
         Jugadores ju=leerNuevoJugador();
-        //SE ASIGNA EL ID DEL JUGADOR QUE SE ESTA MODIFICANDO
+      
         ju.setId_jugador(id);
         return ju;
     }
 
-    //FUNCIÓN PARA LEER EL ID DEL JUGADOR A ELIMINAR
+  
     public int leerIdEliminar() {
         int id = -1;
         while (true) {
@@ -140,13 +139,13 @@ public class JugadoresView {
         return id;
     }
 
-    //FUNCIÓN PARA LEER EL ID DEL JUGADOR QUE SE VA A ACTUALIZAR
+   
     public int leerIdActualizar(){
         System.out.print("Ingrese el ID del jugador a actualizar:");
         return Integer.parseInt(teclado.nextLine());
     }
 
-    //FUNCIÓN PARA LEER LA OPCIÓN QUE EL USUARIO ESCOJA EN EL MENU
+   
     public int leerOpcion(){
         int opcion=-1;
         while(true){
