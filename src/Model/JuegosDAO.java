@@ -21,8 +21,7 @@ public class JuegosDAO {
             stmt.setInt(4, jue.getPrecio());
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Nuevo Juego Creado Correctamente 🎮");
-            System.out.println("");
+            System.out.println("-- Nuevo Juego Creado Correctamente 🎮");
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -34,9 +33,9 @@ public class JuegosDAO {
         String sql = "SELECT * FROM juegos";
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado = stmt.executeQuery(sql);
+            System.out.println("");
+            System.out.println("-- LISTA DE JUEGOS REGISTRADOS 😜");
             while(resultado.next()){
-                System.out.println("");
-                System.out.println("LISTA DE JUEGOS REGISTRADOS 😜");
                 juegos.add(new Juegos(resultado.getInt("id_juego"),
                         resultado.getString("titulo"),
                         resultado.getString ("genero"),
@@ -59,8 +58,7 @@ public class JuegosDAO {
             stmt.setInt(5, jue.getId_juego());
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Juego Actualizado Correctamente 🎮");
-            System.out.println("");
+            System.out.println("-- Juego Actualizado Correctamente 🎮");
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -72,8 +70,7 @@ public class JuegosDAO {
             stmt.setInt(1,id);
             stmt.executeUpdate();
             System.out.println("");
-            System.out.println("Juego Eliminado Correctamente 🎮");
-            System.out.println("");
+            System.out.println("-- Juego Eliminado Correctamente 🎮");
         }catch(SQLException e){
             e.printStackTrace();
         }

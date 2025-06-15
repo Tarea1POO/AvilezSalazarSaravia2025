@@ -28,7 +28,7 @@ public class Main {
             System.out.print("Indique una opción: ");
             opcion = teclado.next();
 
-            switch (opcion.toLowerCase()){
+            switch (opcion.toLowerCase()) {
                 case "1":
                     new JugadoresController().iniciar();
                     break;
@@ -41,9 +41,8 @@ public class Main {
                 case "4":
                     new ControlesController().iniciar();
                     break;
-                case "5":
-                    System.out.println("Saliendo del programa!....😜");
-                }
+                case "5": { System.out.println(" "); System.out.println("Saliendo del programa!....😜"); }
+            }
         }while(!opcion.equalsIgnoreCase("5"));
     }
 }

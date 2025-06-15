@@ -23,7 +23,7 @@ public class ConsolasController {
                 case 2 -> dao.crearConsolas(view.leerNuevaConsola());
                 case 3 -> dao.actualizarConsolas(view.leerConsolasActualizadas());
                 case 4 -> dao.eliminarConsola(view.leerIdEliminar());
-                case 5 -> System.out.println("Adios!!!!...");
+                case 5 -> { System.out.println(" "); System.out.println("Adios!!!!...😜"); }
             }
         }while(opcion !=5 );
     }

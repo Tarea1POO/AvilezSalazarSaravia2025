@@ -15,13 +15,13 @@ public class JugadoresView{
         System.out.print("Indique una opción 😁: ");
         System.out.print("");
     }
-
     //FUNCIÓN PARA MOSTRAR POR PANTALLA LA LISTA DE JUGADORES
-    public void mostrarJugadores (List<Jugadores> jugadores){
-        if( jugadores.isEmpty()){ //SI LA LISTA ESTA VACIA
+    public void mostrarJugadores (List<Jugadores> jugadores) {
+        if (jugadores.isEmpty()) { //SI LA LISTA ESTA VACIA
             System.out.println("");
             System.out.println("-- No hay jugadores registrados --");
-        } else{ //SI TIENE ELEMENTOS, RECORRE LA LISTA E IMPRIME CADA JUGADOR
+
+        }else{ //SI TIENE ELEMENTOS, RECORRE LA LISTA E IMPRIME CADA JUGADOR
             jugadores.forEach(System.out::println);
         }
     }
@@ -36,7 +36,10 @@ public class JugadoresView{
             System.out.print("Nombre: ");
             nombre = teclado.nextLine();
             if(nombre.trim().isEmpty()){
-                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                System.out.println("⚠️ No puede estar vacío, inténtelo de nuevo ⚠️");
+            }else if(!nombre.matches("(?i)^[a-záéíóúñ ]{2,}$")){
+                System.out.println("⚠️ Nombre inválido, inténtelo de nuevo ⚠️");
+                break;
             }
         }
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN APODO OBLIGATORIO
@@ -45,7 +48,10 @@ public class JugadoresView{
             System.out.print("Nickname: ");
             nickname = teclado.nextLine();
             if (nickname.trim().isEmpty()) {
-                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                System.out.println("⚠️ No puede estar vacío, inténtelo de nuevo ⚠️");
+            }else if(!nickname.matches("(?i)^[a-z0-9]{3,}$")){
+                System.out.println("⚠️ Nickname inválido, inténtelo de nuevo ⚠️");
+                break;
             }
         }
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UNA EDAD CORRECTA
@@ -56,11 +62,11 @@ public class JugadoresView{
 
             //VALIDAR QUE NO SEA UN CAMPO VACÍO
             if(entradaUser.isEmpty()){
-                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                System.out.println("⚠️ No puede estar vacío, inténtelo de nuevo ⚠️");
                 continue; //PARA VOLVER A PREGUNTAR LA EDAD
             }
             try{
-                edad=Integer.parseInt(entradaUser);
+                edad = Integer.parseInt(entradaUser);
                 if(edad <= 0){
                     System.out.println("⚠️ Solo debe ingresar números enteros positivos, inténtelo de nuevo ⚠️");
                     continue; //PARA VOLVER A PREGUNTAR LA EDAD
@@ -95,7 +101,7 @@ public class JugadoresView{
             System.out.print("Ingrese el ID del jugador a eliminar: ");
             String entradaUser = teclado.nextLine().trim();
             if(entradaUser.isEmpty()){
-                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                System.out.println("⚠️ No puede estar vacío, inténtelo de nuevo ⚠️");
                 continue;
             }
            try{
@@ -124,14 +130,47 @@ public class JugadoresView{
         while(true){
             String entradaUser = teclado.nextLine().trim();
             if(entradaUser.isEmpty()){
-                System.out.println("⚠️ Campo requerido, inténtelo de nuevo ⚠️");
+                System.out.println("");
+                System.out.println("⚠️ No puede estar vacío, inténtelo de nuevo ⚠️");
+                System.out.println("");
+                System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
+                System.out.println("1.- Listar Jugador/es 📄");
+                System.out.println("2.- Crear Jugador/es 🔧");
+                System.out.println("3.- Editar Jugador/es 🛠️");
+                System.out.println("4.- Eliminar Jugador/es ❌");
+                System.out.println("5.- Salir 🔑");
+                System.out.print("Indique una opción 😁: ");
                 continue;
             }
             try{
                 opcion = Integer.parseInt(entradaUser);
+                if(opcion <= 0){
+                    System.out.println("");
+                    System.out.println("⚠️ No puede ingresar números negativos o ceros, inténtelo de nuevo ⚠️");
+                    System.out.println("");
+                    System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
+                    System.out.println("1.- Listar Jugador/es 📄");
+                    System.out.println("2.- Crear Jugador/es 🔧");
+                    System.out.println("3.- Editar Jugador/es 🛠️");
+                    System.out.println("4.- Eliminar Jugador/es ❌");
+                    System.out.println("5.- Salir 🔑");
+                    System.out.print("Indique una opción 😁: ");
+                    System.out.print("");
+                    continue;
+                }
                 break;
             }catch(NumberFormatException e){
-                System.out.println("⚠️ Ingresa un número del [1-5], inténtelo de nuevo ⚠️");
+                System.out.println(" ");
+                System.out.println("⚠️ Debe ingresar un número del [1-5], inténtelo de nuevo ⚠️");
+                System.out.println("");
+                System.out.println(" 👾🍕 MENÚ DE JUGADORES 👾🍕 ");
+                System.out.println("1.- Listar Jugador/es 📄");
+                System.out.println("2.- Crear Jugador/es 🔧");
+                System.out.println("3.- Editar Jugador/es 🛠️");
+                System.out.println("4.- Eliminar Jugador/es ❌");
+                System.out.println("5.- Salir 🔑");
+                System.out.print("Indique una opción 😁: ");
+                System.out.print("");
             }
         }
         return opcion;

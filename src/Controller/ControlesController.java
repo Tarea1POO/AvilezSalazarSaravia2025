@@ -23,7 +23,7 @@ public class ControlesController {
                 case 2 -> dao.crearControles(view.leerNuevoControl());
                 case 3 -> dao.actualizarControles(view.leerControlesActualizados());
                 case 4 -> dao.eliminarControles(view.leerIdEliminar());
-                case 5 -> System.out.println("Adios!!!!...");
+                case 5 -> { System.out.println(""); System.out.println("Adios!!!!...😜"); }
             }
         }while(opcion !=5 );
     }
