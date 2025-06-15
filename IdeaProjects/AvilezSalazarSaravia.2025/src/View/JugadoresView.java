@@ -34,26 +34,49 @@ public class JugadoresView {
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN NOMBRE OBLIGATORIO
         String nombre="";
-        while(nombre.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
+        while(true){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
             System.out.print("Nombre: ");
             nombre=teclado.nextLine();
-            if(nombre.trim().isEmpty()){
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+            if(nombre.isEmpty()){
                 System.out.println("⚠️ Campo requerido");
+                continue;
             }
+
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
         }
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN APODO OBLIGATORIO
         String nickname="";
-        while(nickname.trim().isEmpty()) {
+        while(true){
             System.out.print("Nickname: ");
-            nickname = teclado.nextLine();
-            if (nickname.trim().isEmpty()) {
+            nickname=teclado.nextLine();
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+            if(nickname.isEmpty()){
                 System.out.println("⚠️ Campo requerido");
+                continue;//PARA VOLVER A PREGUNTAR
             }
+
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!nickname.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
         }
 
-        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UNA EDAD CORRECTA
+        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UNA EDAD VALIDA
         int edad=-1;
+        //SE REPETIRA HASTA UNA EDAD CORRECTA
         while(true){
             System.out.print("Edad: ");
             String entradaUser= teclado.nextLine().trim();

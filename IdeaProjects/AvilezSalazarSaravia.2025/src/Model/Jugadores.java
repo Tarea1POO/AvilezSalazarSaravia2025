@@ -53,12 +53,12 @@ public class Jugadores {
 
     @Override
     public String toString() {
-        return "Jugador {" +
+        return "Jugador |" +
                 "ID Jugador:" + id_jugador +
                 ", Nombre:'" + nombre + '\'' +
                 ", Nickname:'" + nickname + '\'' +
                 ", Edad:" + edad +
-                '}';
+                '|';
     }
 }
 
