@@ -2,75 +2,80 @@ package Model;
 import java.sql.*;
 import java.util.*;
 public class ControlesDAO {
+
+    //CONEXIÓN A LA BD
     private Connection connection;
 
+    //CONSTRUCTOR QUE ESTABLECE LA CONEXIÓN CON LA BD
     public ControlesDAO(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
+            connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
+
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
 
-    public void crearControles(Controles con){
-        String sql = "INSERT INTO controles(tipo, consola_compatible, estado) VALUES(?,?,?)";
-        try(PreparedStatement stmt = connection.prepareStatement(sql)){
+    //CARGA UN NUEVO JUEGO EN LA BD
+    public void crearControles(Controles con ){
+        String sql="INSERT INTO controles(tipo, consola_compatible, estado) VALUES(?,?,?)";
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, con.getTipo());
             stmt.setString(2, con.getConsola_compatible());
             stmt.setString(3, con.getEstado());
             stmt.executeUpdate();
-            System.out.println("");
-            System.out.println("Nuevo Control Creado Correctamente 🕹️");
-            System.out.println("");
+            //REALIZA LA ACTUALIZACIÓN EN LA BD
         }catch(SQLException e){
             e.printStackTrace();
         }
+
     }
 
+    //ADQUIERE TODOS LOS CONTROLES DE LA BD
     public List<Controles> obtenerTodos(){
-        List<Controles> controles = new ArrayList<>();
-        String sql = "SELECT * FROM controles";
+        List<Controles> controles=new ArrayList<>();
+        String sql="SELECT * FROM controles";
         try(Statement stmt = connection.createStatement()){
-            ResultSet resultado = stmt.executeQuery(sql);
+            ResultSet resultado= stmt.executeQuery(sql);
             while(resultado.next()){
-                System.out.println("");
-                System.out.println("LISTA DE CONTROLES REGISTRADOS 😜");
-                controles.add(new Controles(resultado.getInt("id_control"),
-                        resultado.getString("tipo"),
-                        resultado.getString ("consola_compatible"),
-                        resultado.getString("estado")));
+                //CARGA CADA CONTROL EN UN OBJETO Y LO AÑADE A LA LISTA
+                controles.add(new Controles
+                        (resultado.getInt("id_control"),
+                                resultado.getString("tipo"),
+                                resultado.getString ("consola_compatible"),
+                                resultado.getString("estado")));
+
             }
         }catch(SQLException e){
             e.printStackTrace();
         }return controles;
     }
+    //ACTUALIZA UN CONTROL EN LA BD
+    public boolean actualizarControles(Controles con ){
+        String sql="UPDATE controles SET tipo= ?, consola_compatible=?, estado=? WHERE id_control=?";
 
-    public void actualizarControles(Controles con){
-        String sql = "UPDATE controles SET tipo = ?, consola_compatible = ?, estado = ? WHERE id_control = ?";
-        try(PreparedStatement stmt = connection.prepareStatement(sql)){
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, con.getTipo());
             stmt.setString(2, con.getConsola_compatible());
             stmt.setString(3, con.getEstado());
             stmt.setInt(4, con.getId_control());
-            stmt.executeUpdate();
-            System.out.println("");
-            System.out.println("Control Actualizado Correctamente 🕹️");
-            System.out.println("");
+            int resultado=stmt.executeUpdate();
+            return resultado>0;
         }catch(SQLException e){
             e.printStackTrace();
         }
+        return false;
     }
-
-    public void eliminarControles(int id){
-        String sql = "DELETE FROM controles WHERE id_control = ?";
-        try(PreparedStatement stmt = connection.prepareStatement(sql)){
+    //ELIMINA CONTROLES DE LA BD SEGÚN EL ID
+    public boolean eliminarControles(int id){
+        String sql="DELETE FROM controles WHERE id_control=?";
+        try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setInt(1,id);
-            stmt.executeUpdate();
-            System.out.println("");
-            System.out.println("Control Eliminado Correctamente 🕹️");
-            System.out.println("");
+            int filasAfectadas=stmt.executeUpdate();//retorna la cantidad de filas que se eliminaron
+            return filasAfectadas>0;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 }
