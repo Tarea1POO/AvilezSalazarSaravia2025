@@ -14,7 +14,7 @@ public class ControlesView {
         System.out.println("3.- Actualizar Control 🛠️ ");
         System.out.println("4.- Eliminar Control ❌ ");
         System.out.println("5.- Salir 🔑");
-        System.out.print("Indique una opción: 😊 ");
+        System.out.print("Indique una opción 😊: ");
     }
 
     //FUNCIÓN PARA MOSTRAR POR PANTALLA LA LISTA DE CONTROLES
@@ -32,33 +32,45 @@ public class ControlesView {
     public Controles leerNuevoControl() {
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE EL TIPO OBLIGATORIO
-        String tipo="";
-        while(tipo.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
-            System.out.print("Tipo: ");
-            tipo=teclado.nextLine();
-            if(tipo.trim().isEmpty()){
+        System.out.print("Tipo: ");
+        String tipo = teclado.nextLine();
+        while (!tipo.matches("[a-zA-Z ]+") || tipo.trim().isEmpty()) {
+            if (tipo.trim().isEmpty()) {
                 System.out.println("⚠️ Campo requerido");
+            } else {
+                System.out.println("⚠️ Tipo no válido");
             }
+            System.out.print("Tipo: ");
+            tipo = teclado.nextLine();
         }
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UNA CONSOLA COMPATIBLE OBLIGATORIO
-        String consola_compatible="";
-        while(consola_compatible.trim().isEmpty()) {
-            System.out.print("Consola compatible: ");
-            consola_compatible = teclado.nextLine();
+        System.out.print("Consola compatible: ");
+        String consola_compatible = teclado.nextLine();
+        while (!consola_compatible.matches("[a-zA-Z0-9 ]+") || consola_compatible.trim().isEmpty()) {
             if (consola_compatible.trim().isEmpty()) {
                 System.out.println("⚠️ Campo requerido");
+            } else {
+                System.out.println("⚠️ Consola no válido");
             }
+            System.out.print("Consola compatible: ");
+            consola_compatible = teclado.nextLine();
         }
 
+
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE EL ESTADO
-        String estado="";
-        while(estado.trim().isEmpty()) {
-            System.out.print("Estado: ");
-            estado = teclado.nextLine();
+
+
+        System.out.print("Estado: ");
+        String estado = teclado.nextLine();
+        while (!(estado.equalsIgnoreCase("activo")|| estado.equalsIgnoreCase("inactivo"))) {
             if (estado.trim().isEmpty()) {
                 System.out.println("⚠️ Campo requerido");
+            } else {
+                System.out.println("⚠️ Estado no válido");
             }
+            System.out.print("Estado: ");
+            estado = teclado.nextLine();
         }
 
         //CREAR EL OBJETO CONTROL CON LOS DATOS OBTENIDOS

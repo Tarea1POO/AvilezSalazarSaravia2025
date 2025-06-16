@@ -58,7 +58,7 @@ public class JuegosDAO {
     //ACTUALIZA UN JUEGO EN LA BD
     public boolean actualizarJuegos(Juegos jue ){
 
-        String sql="UPDATE juegos SET titulo= ?, genero=?, consola_compatible=?, precio=?WHERE id_juego=?";
+        String sql="UPDATE juegos SET titulo= ?, genero=?, consola_compatible=?, precio=? WHERE id_juego=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, jue.getTitulo());
             stmt.setString(2, jue.getGenero());

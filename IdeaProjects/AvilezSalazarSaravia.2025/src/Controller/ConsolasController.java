@@ -57,7 +57,7 @@ public class ConsolasController {
                     int id=view.leerIdEliminar();
                     boolean eliminado=dao.eliminarConsola(id);
                     if (eliminado) {
-                        System.out.println("Consola eliminado correctamente de la BD");
+                        System.out.println("Consola eliminada correctamente de la BD");
                     }else{
                         System.out.println("No existe una consola con ese ID");
                     }

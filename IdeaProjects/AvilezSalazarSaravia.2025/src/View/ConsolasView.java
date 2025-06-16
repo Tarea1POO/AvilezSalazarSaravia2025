@@ -33,24 +33,45 @@ public class ConsolasView {
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN NOMBRE OBLIGATORIO
         String nombre="";
-        while(nombre.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
+        while(true){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
             System.out.print("Nombre: ");
             nombre=teclado.nextLine();
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
             if(nombre.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
+                continue;
             }
+
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
         }
 
-        //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN FABRICANTE OBLIGATORIO
+
         String fabricante="";
-        while(fabricante.trim().isEmpty()) {
+        while(true){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
             System.out.print("Fabricante: ");
-            fabricante = teclado.nextLine();
-            if (fabricante.trim().isEmpty()) {
-                System.out.println("⚠️ Campo requerido");
-            }
-        }
+            fabricante=teclado.nextLine();
 
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+            if(fabricante.trim().isEmpty()){
+                System.out.println("⚠️ Campo requerido");
+                continue;
+            }
+
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!fabricante.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
+        }
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN AÑO DE LANZAMIENTO VALIDO
         int anio_lanzamiento=-1;
         while(true){

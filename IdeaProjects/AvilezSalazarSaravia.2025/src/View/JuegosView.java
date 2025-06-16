@@ -33,31 +33,53 @@ public class JuegosView {
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN TITULO OBLIGATORIO
         String titulo="";
-        while(titulo.trim().isEmpty()){//TRIM ELIMINA LOS ESPACIOS EN BLANCO DEL TEXTO AL INICIO Y AL FINAL
+        while(true){
             System.out.print("Titulo: ");
             titulo=teclado.nextLine();
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
             if(titulo.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
+                continue;//PARA VOLVER A PREGUNTAR
             }
-        }
 
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!titulo.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
+        }
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN GENERO OBLIGATORIO
         String genero="";
-        while(genero.trim().isEmpty()) {
+        while(true){
             System.out.print("Genero: ");
-            genero = teclado.nextLine();
-            if (genero.trim().isEmpty()) {
+            genero=teclado.nextLine();
+
+            //VALIDAR QUE NO SEA UN CAMPO VACÍO
+            if(genero.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
+                continue;//PARA VOLVER A PREGUNTAR
             }
+
+            //VALIDAR QUE CONTENGA SOLO LETRAS Y ESPACIOS
+            if (!genero.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+                System.out.println("⚠️ Solo debe contener letras y espacios");
+                continue;//PARA VOLVER A PREGUNTAR
+            }
+            break;//PARA SALIR
+
         }
 
-        String consola_compatible="";
-        while(consola_compatible.trim().isEmpty()) {
-            System.out.print("Consola compatible: ");
+
+        System.out.print("Consola Compatible: ");
+        String consola_compatible = teclado.nextLine();
+
+        while(!consola_compatible.matches("[a-zA-Z0-9]+")){
+            System.out.println("⚠️ Consola no valida");
+            System.out.print("Consola Compatible: ");
             consola_compatible = teclado.nextLine();
-            if (consola_compatible.trim().isEmpty()) {
-                System.out.println("⚠️ Campo requerido");
-            }
         }
 
         //BUCLE PARA VALIDAR QUE EL USUARIO INGRESE UN PRECIO VALIDO
@@ -67,7 +89,7 @@ public class JuegosView {
             String entradaUser= teclado.nextLine().trim();
 
             //VALIDAR QUE NO SEA UN CAMPO VACÍO
-            if(entradaUser.isEmpty()){
+            if(entradaUser.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
                 continue; //PARA VOLVER A PREGUNTAR EL PRECIO
             }

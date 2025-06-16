@@ -11,7 +11,7 @@ public class JugadoresView {
         System.out.println(" MENÚ DE JUGADORES ");
         System.out.println("1.- Listar Jugadores 🗒️ ");
         System.out.println("2.- Crear Jugador 🔧 ");
-        System.out.println("3.- Actulizar Jugador 🛠️ ");
+        System.out.println("3.- Actualizar Jugador 🛠️ ");
         System.out.println("4.- Eliminar Jugador ❌");
         System.out.println("5.- Salir 🔑");
         System.out.print("Ingrese una opción 😊: ");
@@ -39,7 +39,7 @@ public class JugadoresView {
             nombre=teclado.nextLine();
 
             //VALIDAR QUE NO SEA UN CAMPO VACÍO
-            if(nombre.isEmpty()){
+            if(nombre.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
                 continue;
             }
@@ -60,7 +60,7 @@ public class JugadoresView {
             nickname=teclado.nextLine();
 
             //VALIDAR QUE NO SEA UN CAMPO VACÍO
-            if(nickname.isEmpty()){
+            if(nickname.trim().isEmpty()){
                 System.out.println("⚠️ Campo requerido");
                 continue;//PARA VOLVER A PREGUNTAR
             }
