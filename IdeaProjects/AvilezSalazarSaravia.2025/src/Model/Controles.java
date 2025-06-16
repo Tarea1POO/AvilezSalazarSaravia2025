@@ -1,12 +1,11 @@
 package Model;
-
 public class Controles {
     private int id_control;
     private String tipo;
     private String consola_compatible;
     private String estado;
 
-    //CONSTRUCTOR VACIO
+    //CONSTRUCTOR VACÍO
     public Controles() {
     }
 
@@ -53,11 +52,11 @@ public class Controles {
 
     @Override
     public String toString() {
-        return "Control {" +
+        return "Control |" +
                 "ID control:" + id_control +
                 ", Tipo:'" + tipo + '\'' +
                 ", Consola Compatible:'" + consola_compatible + '\'' +
                 ", Estado:'" + estado + '\'' +
-                '}';
+                '|';
     }
 }

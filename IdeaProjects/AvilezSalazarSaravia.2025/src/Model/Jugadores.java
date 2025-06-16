@@ -1,12 +1,11 @@
 package Model;
-
 public class Jugadores {
     private int id_jugador;
     private String nombre;
     private String nickname;
     private int edad;
 
-    //CONSTRUCTOR VACIO
+    //CONSTRUCTOR VACÍO
     public Jugadores() {
     }
 

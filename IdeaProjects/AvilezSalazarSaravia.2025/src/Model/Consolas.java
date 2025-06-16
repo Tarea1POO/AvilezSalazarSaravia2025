@@ -1,12 +1,11 @@
 package Model;
-
 public class Consolas {
     private int id_consola;
     private String nombre;
     private String fabricante;
     private int anio_lanzamiento;
 
-    //CONSTRUCTOR VACIO
+    //CONSTRUCTOR VACÍO
     public Consolas() {
     }
 
@@ -54,12 +53,12 @@ public class Consolas {
 
     @Override
     public String toString() {
-        return "Consola {" +
+        return "Consola |" +
                 "ID Consola:" + id_consola +
                 ", Nombre:'" + nombre + '\'' +
                 ", Fabricante:'" + fabricante + '\'' +
                 ", Año de lanzamiento:" + anio_lanzamiento +
-                '}';
+                '|';
     }
 }
 

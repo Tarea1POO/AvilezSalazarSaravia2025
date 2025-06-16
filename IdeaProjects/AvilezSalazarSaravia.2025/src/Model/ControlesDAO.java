@@ -2,7 +2,11 @@ package Model;
 import java.sql.*;
 import java.util.*;
 public class ControlesDAO {
+
+    //CONEXIÓN A LA BD
     private Connection connection;
+
+    //CONSTRUCTOR QUE ESTABLECE LA CONEXIÓN CON LA BD
     public ControlesDAO(){
         try{
             connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
@@ -11,6 +15,8 @@ public class ControlesDAO {
             e.printStackTrace();
         }
     }
+
+    //CARGA UN NUEVO JUEGO EN LA BD
     public void crearControles(Controles con ){
         String sql="INSERT INTO controles(tipo, consola_compatible, estado) VALUES(?,?,?)";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -18,6 +24,7 @@ public class ControlesDAO {
             stmt.setString(2, con.getConsola_compatible());
             stmt.setString(3, con.getEstado());
             stmt.executeUpdate();
+            //REALIZA LA ACTUALIZACIÓN EN LA BD
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -43,9 +50,10 @@ public class ControlesDAO {
             e.printStackTrace();
         }return controles;
     }
-    //ACTUALIZA CONTROLES EN LA BD
+    //ACTUALIZA UN CONTROL EN LA BD
     public boolean actualizarControles(Controles con ){
         String sql="UPDATE controles SET tipo= ?, consola_compatible=?, estado=? WHERE id_control=?";
+
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
             stmt.setString(1, con.getTipo());
             stmt.setString(2, con.getConsola_compatible());
@@ -58,7 +66,7 @@ public class ControlesDAO {
         }
         return false;
     }
-    //ELIMINA CONTROLES DE LA BD SEGUN EL ID
+    //ELIMINA CONTROLES DE LA BD SEGÚN EL ID
     public boolean eliminarControles(int id){
         String sql="DELETE FROM controles WHERE id_control=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){

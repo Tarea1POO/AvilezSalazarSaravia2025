@@ -1,7 +1,5 @@
 package View;
 import Model.Juegos;
-import Model.Jugadores;
-
 import java.util.*;
 
 public class JuegosView {
@@ -75,7 +73,7 @@ public class JuegosView {
             }
             try{
                 precio=Integer.parseInt(entradaUser);
-                if(precio <=0){
+                if(precio <0){
                     System.out.println("⚠️ Solo debe ingresar números enteros positivos");
                     continue; //PARA VOLVER A PREGUNTAR EL PRECIO
                 }

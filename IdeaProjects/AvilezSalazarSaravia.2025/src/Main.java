@@ -9,7 +9,7 @@ public class Main{
         String opcion;
         do {
             System.out.println(" ");
-            System.out.println(" 🎮 MENU PRINCIPAL 🎮 ");
+            System.out.println(" 🎮 MENÚ PRINCIPAL 🎮 ");
             System.out.println("1- Gestionar Jugadores");
             System.out.println("2- Gestionar Juegos");
             System.out.println("3- Gestionar Consolas");

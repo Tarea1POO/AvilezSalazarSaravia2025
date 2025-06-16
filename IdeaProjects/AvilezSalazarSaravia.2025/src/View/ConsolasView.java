@@ -1,7 +1,5 @@
 package View;
 import Model.Consolas;
-import Model.Jugadores;
-
 import java.util.*;
 
 public class ConsolasView {

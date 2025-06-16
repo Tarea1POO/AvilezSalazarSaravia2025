@@ -2,7 +2,11 @@ package Model;
 import java.sql.*;
 import java.util.*;
 public class ConsolasDAO {
+
+    //CONEXIÓN A LA BD
     private Connection connection;
+
+    //CONSTRUCTOR QUE ESTABLECE LA CONEXIÓN CON LA BD
     public ConsolasDAO(){
         try{
             connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
@@ -63,7 +67,7 @@ public class ConsolasDAO {
         }
     }
 
-    //ELIMINA UNA CONSOLA DE LA BD SEG´´UN EL ID
+    //ELIMINA UNA CONSOLA DE LA BD SEGÚN EL ID
     public boolean eliminarConsola(int id){
         String sql="DELETE FROM consolas WHERE id_consola=?";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){

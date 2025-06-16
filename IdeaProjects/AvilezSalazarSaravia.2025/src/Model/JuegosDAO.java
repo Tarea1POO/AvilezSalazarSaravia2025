@@ -2,7 +2,11 @@ package Model;
 import java.sql.*;
 import java.util.*;
 public class JuegosDAO {
+
+    //CONEXIÓN A LA BD
     private Connection connection;
+
+    //CONSTRUCTOR QUE ESTABLECE LA CONEXIÓN CON LA BD
     public JuegosDAO(){
         try{
             connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
@@ -12,6 +16,7 @@ public class JuegosDAO {
         }
     }
 
+    //CARGA UN NUEVO JUEGO EN LA BD
     public void crearJuegos(Juegos jue ){
         String sql="INSERT INTO juegos(titulo, genero, consola_compatible, precio) VALUES(?,?,?,?)";
         try(PreparedStatement stmt=connection.prepareStatement(sql)){
@@ -35,7 +40,9 @@ public class JuegosDAO {
         try(Statement stmt = connection.createStatement()){
             ResultSet resultado= stmt.executeQuery(sql);
             while(resultado.next()){
-                juegos.add(new Juegos(resultado.getInt("id_juego"),
+                //CARGA CADA JUEGO EN UN OBJETO Y LO AÑADE A LA LISTA
+                juegos.add(new Juegos(
+                        resultado.getInt("id_juego"),
                         resultado.getString("titulo"),
                         resultado.getString ("genero"),
                         resultado.getString("consola_compatible"),

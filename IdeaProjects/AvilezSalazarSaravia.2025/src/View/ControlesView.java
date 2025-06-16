@@ -1,7 +1,5 @@
 package View;
 import Model.Controles;
-import Model.Jugadores;
-
 import java.util.*;
 
 public class ControlesView {

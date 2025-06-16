@@ -1,5 +1,4 @@
 package Model;
-
 public class Juegos {
     private int id_juego;
     private String titulo;
@@ -7,7 +6,7 @@ public class Juegos {
     private String consola_compatible;
     private int precio;
 
-    //CONSTRUCTOR VACIO
+    //CONSTRUCTOR VACÍO
     public Juegos() {
     }
     //CONSTRUCTOR CON DATOS
@@ -19,7 +18,7 @@ public class Juegos {
         this.precio = precio;
     }
 
-    //GETTERS Y SETTERS
+    //GETTER Y SETTER
     public int getId_juego() {
         return id_juego;
     }
@@ -62,12 +61,12 @@ public class Juegos {
 
     @Override
     public String toString() {
-        return "Juego {" +
+        return "Juego |" +
                 "ID Juego:" + id_juego +
                 ", Titulo:'" + titulo + '\'' +
                 ", Género:'" + genero + '\'' +
                 ", Consola Compatible:'" + consola_compatible + '\'' +
                 ", Precio:$" + precio +
-                '}';
+                '|';
     }
 }
